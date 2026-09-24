@@ -4,22 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PT Amanah Sakura Japan</title>
-  <meta name="description" content="PT Amanah Sakura Japan - Connecting Indonesian talent with opportunities in Japan.">
+  <title>Amanah Sakura Japan</title>
 
   <style>
-    :root {
-      --red: #b5121b;
-      --red-dark: #8e0d14;
-      --black: #111111;
-      --text: #252525;
-      --muted: #707070;
-      --light: #f7f7f5;
-      --white: #ffffff;
-      --border: #e8e8e8;
-      --shadow: 0 15px 40px rgba(0,0,0,.08);
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -32,18 +19,14 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.7;
+      color: #171717;
+      background: #faf9f7;
+      line-height: 1.6;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
-    }
-
-    button {
-      font-family: inherit;
+      color: inherit;
     }
 
     /* =========================
@@ -51,22 +34,25 @@
     ========================= */
 
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
       z-index: 1000;
-      background: rgba(255,255,255,.96);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
 
-    .nav-container {
+    .nav {
       max-width: 1200px;
       margin: auto;
-      padding: 16px 24px;
+      height: 76px;
+      padding: 0 25px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 25px;
+      gap: 20px;
     }
 
     .logo {
@@ -74,73 +60,71 @@
       align-items: center;
       gap: 12px;
       font-weight: 800;
-      letter-spacing: .5px;
     }
 
     .logo-mark {
-      width: 42px;
-      height: 42px;
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
-      background: var(--red);
+      background: #b5122b;
       color: white;
-      display: grid;
-      place-items: center;
-      font-size: 20px;
-      box-shadow: 0 5px 15px rgba(181,18,27,.25);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
+      box-shadow: 0 8px 25px rgba(181,18,43,0.22);
     }
 
-    .logo-text {
-      font-size: 14px;
-      line-height: 1.25;
+    .logo-text strong {
+      display: block;
+      font-size: 16px;
+      letter-spacing: 0.5px;
     }
 
     .logo-text span {
       display: block;
-      color: var(--red);
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      margin-top: 2px;
+      font-size: 10px;
+      color: #777;
+      letter-spacing: 2px;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 25px;
     }
 
     nav a {
       font-size: 14px;
-      font-weight: 600;
-      color: #333;
-      transition: .2s;
+      color: #444;
+      transition: 0.3s;
     }
 
     nav a:hover {
-      color: var(--red);
+      color: #b5122b;
     }
 
     .language {
       display: flex;
       gap: 5px;
-      padding: 4px;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      background: white;
+      margin-left: 10px;
     }
 
     .language button {
-      border: none;
-      background: transparent;
-      padding: 7px 10px;
-      border-radius: 20px;
+      border: 1px solid #ddd;
+      background: white;
+      padding: 6px 9px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 11px;
+      transition: 0.3s;
     }
 
+    .language button:hover,
     .language button.active {
-      background: var(--red);
+      background: #b5122b;
       color: white;
+      border-color: #b5122b;
     }
 
     /* =========================
@@ -148,76 +132,88 @@
     ========================= */
 
     .hero {
-      min-height: 650px;
-      display: flex;
-      align-items: center;
+      min-height: 100vh;
+      padding: 150px 25px 90px;
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+
       background:
-        radial-gradient(circle at 85% 20%, rgba(181,18,27,.13), transparent 30%),
-        linear-gradient(135deg, #fff 0%, #faf9f7 100%);
+        radial-gradient(circle at 80% 20%, rgba(181,18,43,0.10), transparent 28%),
+        radial-gradient(circle at 10% 80%, rgba(0,0,0,0.06), transparent 25%),
+        linear-gradient(135deg, #fff 0%, #f8f5f2 50%, #eee9e5 100%);
     }
 
-    .hero::after {
+    .hero::before {
       content: "桜";
       position: absolute;
-      right: 5%;
-      bottom: -80px;
-      font-size: 420px;
+      right: -80px;
+      top: 90px;
+      font-size: 520px;
       font-weight: 900;
-      color: rgba(181,18,27,.035);
+      color: rgba(181,18,43,0.035);
+      line-height: 1;
       pointer-events: none;
     }
 
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(181,18,43,0.10);
+      border-radius: 50%;
+      right: -150px;
+      bottom: -200px;
+    }
+
     .hero-container {
-      width: 100%;
       max-width: 1200px;
+      width: 100%;
       margin: auto;
-      padding: 90px 24px;
       position: relative;
       z-index: 2;
     }
 
     .hero-content {
-      max-width: 720px;
+      max-width: 760px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      color: var(--red);
+      gap: 10px;
+      color: #b5122b;
       font-size: 13px;
-      font-weight: 800;
+      font-weight: bold;
       letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
     }
 
     .eyebrow::before {
       content: "";
-      width: 32px;
+      width: 35px;
       height: 2px;
-      background: var(--red);
+      background: #b5122b;
     }
 
     .hero h1 {
-      font-size: clamp(42px, 6vw, 78px);
+      font-size: clamp(45px, 7vw, 82px);
       line-height: 1.05;
       letter-spacing: -3px;
-      margin-bottom: 24px;
-      color: var(--black);
+      margin-bottom: 25px;
     }
 
     .hero h1 span {
-      color: var(--red);
+      color: #b5122b;
     }
 
-    .hero p {
+    .hero-text {
       max-width: 650px;
-      font-size: 18px;
-      color: var(--muted);
-      margin-bottom: 32px;
+      color: #666;
+      font-size: 17px;
+      margin-bottom: 35px;
     }
 
     .hero-buttons {
@@ -228,70 +224,67 @@
 
     .btn {
       display: inline-flex;
-      align-items: center;
       justify-content: center;
-      padding: 13px 22px;
-      border-radius: 8px;
-      font-weight: 700;
+      align-items: center;
+      padding: 14px 25px;
+      border-radius: 7px;
       font-size: 14px;
-      transition: .25s;
-      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
     }
 
     .btn-primary {
-      background: var(--red);
+      background: #b5122b;
       color: white;
-      box-shadow: 0 10px 25px rgba(181,18,27,.2);
+      box-shadow: 0 12px 30px rgba(181,18,43,0.22);
     }
 
     .btn-primary:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      background: #940d22;
     }
 
-    .btn-secondary {
-      background: white;
-      border: 1px solid #ddd;
+    .btn-outline {
+      border: 1px solid #ccc;
+      background: rgba(255,255,255,0.6);
     }
 
-    .btn-secondary:hover {
-      border-color: var(--red);
-      color: var(--red);
+    .btn-outline:hover {
+      border-color: #b5122b;
+      color: #b5122b;
     }
 
     /* =========================
-       GENERAL
+       SECTION
     ========================= */
 
     section {
-      padding: 95px 24px;
+      padding: 100px 25px;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: auto;
     }
 
     .section-label {
-      color: var(--red);
+      color: #b5122b;
       font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 3px;
       margin-bottom: 10px;
+      text-transform: uppercase;
     }
 
     .section-title {
-      font-size: clamp(30px, 4vw, 46px);
+      font-size: clamp(30px, 5vw, 48px);
       line-height: 1.15;
-      margin-bottom: 16px;
-      color: var(--black);
+      margin-bottom: 20px;
     }
 
     .section-description {
+      color: #777;
       max-width: 700px;
-      color: var(--muted);
-      margin-bottom: 45px;
     }
 
     /* =========================
@@ -299,7 +292,7 @@
     ========================= */
 
     .about {
-      background: var(--white);
+      background: white;
     }
 
     .about-grid {
@@ -310,39 +303,78 @@
     }
 
     .about-visual {
-      min-height: 390px;
-      border-radius: 24px;
-      background:
-        linear-gradient(rgba(181,18,27,.1), rgba(181,18,27,.1)),
-        linear-gradient(135deg, #f1eee9, #fff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      min-height: 430px;
+      border-radius: 25px;
       position: relative;
       overflow: hidden;
+
+      background:
+        linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)),
+        radial-gradient(circle at 30% 25%, #d94b62, transparent 20%),
+        linear-gradient(135deg, #262626, #111);
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .about-visual::before {
-      content: "日本";
-      font-size: 150px;
-      font-weight: 900;
-      color: rgba(181,18,27,.08);
+      content: "";
+      position: absolute;
+      width: 310px;
+      height: 310px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
     }
 
-    .about-badge {
+    .about-visual::after {
+      content: "SAKURA";
       position: absolute;
       bottom: 25px;
-      left: 25px;
-      padding: 18px 20px;
-      background: white;
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      font-weight: 800;
+      left: 30px;
+      color: rgba(255,255,255,0.35);
+      font-size: 12px;
+      letter-spacing: 5px;
+    }
+
+    .sakura-symbol {
+      position: relative;
+      z-index: 2;
+      color: white;
+      font-size: 150px;
+      font-weight: 300;
+      text-shadow: 0 15px 40px rgba(0,0,0,0.3);
     }
 
     .about-text p {
-      color: var(--muted);
-      margin-bottom: 18px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .about-points {
+      margin-top: 30px;
+      display: grid;
+      gap: 13px;
+    }
+
+    .point {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .point-icon {
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      background: #f9e7ea;
+      color: #b5122b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
     }
 
     /* =========================
@@ -350,47 +382,67 @@
     ========================= */
 
     .services {
-      background: var(--light);
+      background: #f5f2ef;
     }
 
-    .cards {
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 50px;
+    }
+
+    .service-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 20px;
     }
 
-    .card {
+    .service-card {
       background: white;
-      padding: 32px;
-      border: 1px solid var(--border);
+      padding: 35px;
       border-radius: 18px;
-      transition: .25s;
+      border: 1px solid #eee;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
     }
 
-    .card-icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
+    .service-number {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      color: #eee;
+      font-size: 45px;
+      font-weight: bold;
+    }
+
+    .service-icon {
+      width: 55px;
+      height: 55px;
       border-radius: 14px;
-      background: rgba(181,18,27,.08);
-      color: var(--red);
+      background: #f9e7ea;
+      color: #b5122b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 24px;
-      margin-bottom: 22px;
+      margin-bottom: 25px;
     }
 
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
+    .service-card h3 {
+      margin-bottom: 12px;
+      font-size: 19px;
     }
 
-    .card p {
-      color: var(--muted);
+    .service-card p {
+      color: #777;
       font-size: 14px;
     }
 
@@ -405,30 +457,34 @@
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 15px;
+      margin-top: 55px;
     }
 
     .process-item {
       position: relative;
-      padding: 28px 20px;
-      border-top: 3px solid var(--red);
-      background: #fafafa;
-      border-radius: 0 0 14px 14px;
+      padding: 30px 20px;
+      border-top: 2px solid #ddd;
     }
 
-    .number {
-      font-size: 34px;
-      font-weight: 900;
-      color: var(--red);
-      margin-bottom: 12px;
+    .process-item:hover {
+      border-color: #b5122b;
+    }
+
+    .process-number {
+      color: #b5122b;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
 
     .process-item h3 {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      font-size: 18px;
     }
 
     .process-item p {
-      color: var(--muted);
+      color: #777;
       font-size: 13px;
     }
 
@@ -437,34 +493,47 @@
     ========================= */
 
     .cta {
-      padding: 70px 24px;
-      background: var(--red);
+      padding: 0 25px 100px;
+      background: white;
+    }
+
+    .cta-box {
+      max-width: 1100px;
+      margin: auto;
+      border-radius: 25px;
+      padding: 65px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,0.18), transparent 25%),
+        linear-gradient(135deg, #171717, #2a2a2a);
       color: white;
     }
 
-    .cta-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
+    .cta-box::after {
+      content: "桜";
+      position: absolute;
+      right: 20px;
+      bottom: -100px;
+      font-size: 330px;
+      color: rgba(255,255,255,0.035);
     }
 
-    .cta h2 {
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.2;
-      margin-bottom: 8px;
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
     }
 
-    .cta p {
-      opacity: .85;
+    .cta-box h2 {
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.15;
+      margin-bottom: 18px;
     }
 
-    .cta .btn {
-      background: white;
-      color: var(--red);
-      white-space: nowrap;
+    .cta-box p {
+      color: #bbb;
+      margin-bottom: 30px;
     }
 
     /* =========================
@@ -472,20 +541,55 @@
     ========================= */
 
     .contact {
-      background: var(--light);
+      background: #f5f2ef;
     }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info {
+      margin-top: 35px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .contact-icon {
+      width: 45px;
+      height: 45px;
+      background: white;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #b5122b;
+    }
+
+    .contact-item small {
+      display: block;
+      color: #999;
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    .contact-item strong {
+      font-size: 14px;
     }
 
     .contact-card {
       background: white;
-      border: 1px solid var(--border);
+      padding: 35px;
       border-radius: 18px;
-      padding: 30px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.05);
     }
 
     .contact-card h3 {
@@ -493,8 +597,9 @@
     }
 
     .contact-card p {
-      color: var(--muted);
-      margin-bottom: 8px;
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 25px;
     }
 
     /* =========================
@@ -504,117 +609,137 @@
     footer {
       background: #111;
       color: white;
-      padding: 45px 24px;
+      padding: 45px 25px;
     }
 
-    .footer-container {
-      max-width: 1200px;
+    .footer-inner {
+      max-width: 1100px;
       margin: auto;
       display: flex;
       justify-content: space-between;
-      gap: 30px;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 25px;
     }
 
-    .footer-brand {
-      max-width: 420px;
+    .footer-logo {
+      font-weight: bold;
     }
 
-    .footer-brand h3 {
-      margin-bottom: 8px;
-    }
-
-    .footer-brand p {
-      color: #aaa;
-      font-size: 14px;
+    .footer-logo span {
+      color: #b5122b;
     }
 
     .copyright {
       color: #777;
-      font-size: 13px;
-      align-self: flex-end;
+      font-size: 12px;
     }
 
     /* =========================
        MOBILE
     ========================= */
 
-    @media (max-width: 900px) {
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 850px) {
 
-      .cards {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .process-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      nav {
-        gap: 12px;
-      }
-
-      nav a {
-        font-size: 12px;
-      }
-    }
-
-    @media (max-width: 650px) {
-      .nav-container {
-        padding: 12px 16px;
+      .nav {
+        height: auto;
+        min-height: 70px;
+        padding: 12px 18px;
         flex-wrap: wrap;
-      }
-
-      .logo-text {
-        font-size: 12px;
       }
 
       nav {
         width: 100%;
         justify-content: center;
+        gap: 15px;
         flex-wrap: wrap;
-        gap: 12px;
+        padding-bottom: 8px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .language {
+        margin-left: 0;
       }
 
       .hero {
-        min-height: 580px;
-      }
-
-      .hero-container {
-        padding: 70px 20px;
+        padding-top: 160px;
       }
 
       .hero h1 {
         letter-spacing: -2px;
       }
 
-      .hero p {
-        font-size: 16px;
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
       }
+
+      .about-visual {
+        min-height: 320px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .services-header {
+        display: block;
+      }
+
+      .services-header .section-description {
+        margin-top: 15px;
+      }
+
+      .cta-box {
+        padding: 40px 30px;
+      }
+    }
+
+    @media (max-width: 520px) {
 
       section {
-        padding: 70px 20px;
+        padding: 75px 18px;
       }
 
-      .cards,
+      .hero {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .hero-text {
+        font-size: 15px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
       .process-grid {
         grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
       .about-visual {
         min-height: 280px;
       }
 
-      .cta-container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .cta .btn {
-        width: 100%;
+      .sakura-symbol {
+        font-size: 110px;
       }
     }
   </style>
@@ -622,29 +747,33 @@
 
 <body>
 
-  <!-- HEADER -->
+  <!-- =========================
+       HEADER
+  ========================== -->
+
   <header>
-    <div class="nav-container">
+    <div class="nav">
 
       <a href="#home" class="logo">
         <div class="logo-mark">桜</div>
+
         <div class="logo-text">
-          AMANAH SAKURA JAPAN
-          <span>PT AMANAH SAKURA JAPAN</span>
+          <strong>Amanah Sakura Japan</strong>
+          <span>JAPAN • INDONESIA</span>
         </div>
       </a>
 
       <nav>
-        <a href="#home" data-key="home">Home</a>
-        <a href="#about" data-key="about">Tentang Kami</a>
-        <a href="#services" data-key="services">Layanan</a>
-        <a href="#process" data-key="process">Alur</a>
-        <a href="#contact" data-key="contact">Kontak</a>
+        <a href="#home" data-key="navHome">Home</a>
+        <a href="#about" data-key="navAbout">Tentang Kami</a>
+        <a href="#services" data-key="navServices">Layanan</a>
+        <a href="#process" data-key="navProcess">Alur</a>
+        <a href="#contact" data-key="navContact">Kontak</a>
 
         <div class="language">
-          <button onclick="setLanguage('id')" id="lang-id" class="active">ID</button>
-          <button onclick="setLanguage('jp')" id="lang-jp">JP</button>
-          <button onclick="setLanguage('en')" id="lang-en">EN</button>
+          <button id="lang-id" onclick="setLanguage('id')">ID</button>
+          <button id="lang-jp" onclick="setLanguage('jp')">JP</button>
+          <button id="lang-en" onclick="setLanguage('en')">EN</button>
         </div>
       </nav>
 
@@ -652,76 +781,290 @@
   </header>
 
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-container">
+  <!-- =========================
+       HERO
+  ========================== -->
 
-      <div class="hero-content">
+  <main>
 
-        <div class="eyebrow" data-key="eyebrow">
-          Connecting Indonesia & Japan
-        </div>
+    <section class="hero" id="home">
 
-        <h1 data-key="heroTitle">
-          Connecting <span>Talent</span><br>
-          with Japan
-        </h1>
+      <div class="hero-container">
 
-        <p data-key="heroText">
-          Membantu menghubungkan talenta Indonesia dengan
-          peluang kerja dan kesempatan berkembang di Jepang.
-        </p>
+        <div class="hero-content">
 
-        <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary" data-key="heroButton">
-            Hubungi Kami
-          </a>
+          <div class="eyebrow" data-key="heroEyebrow">
+            MENGHUBUNGKAN INDONESIA & JEPANG
+          </div>
 
-          <a href="#services" class="btn btn-secondary" data-key="heroSecondButton">
-            Lihat Layanan
-          </a>
+          <h1>
+            <span data-key="heroTitle1">Menghubungkan</span><br>
+            <span data-key="heroTitle2">Talenta dengan Jepang</span>
+          </h1>
+
+          <p class="hero-text" data-key="heroText">
+            Membantu menghubungkan talenta Indonesia dengan peluang kerja dan kesempatan berkembang di Jepang.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary" data-key="heroButton">
+              Hubungi Kami
+            </a>
+
+            <a href="#about" class="btn btn-outline" data-key="heroSecondButton">
+              Tentang Kami
+            </a>
+          </div>
+
         </div>
 
       </div>
 
-    </div>
-  </section>
+    </section>
 
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="container">
+    <!-- =========================
+         ABOUT
+    ========================== -->
 
-      <div class="about-grid">
+    <section class="about" id="about">
+
+      <div class="container about-grid">
 
         <div class="about-visual">
-          <div class="about-badge" data-key="aboutBadge">
-            Indonesia × Japan
-          </div>
+          <div class="sakura-symbol">桜</div>
         </div>
 
         <div class="about-text">
 
           <div class="section-label" data-key="aboutLabel">
-            About Company
+            TENTANG KAMI
           </div>
 
           <h2 class="section-title" data-key="aboutTitle">
-            Tentang Kami
+            Menjembatani peluang Indonesia dan Jepang
           </h2>
 
           <p data-key="aboutText1">
-            PT Amanah Sakura Japan hadir untuk membantu membangun
-            hubungan profesional antara Indonesia dan Jepang.
+            Amanah Sakura Japan hadir untuk membantu membangun hubungan dan peluang antara Indonesia dan Jepang.
           </p>
 
           <p data-key="aboutText2">
-            Kami berkomitmen memberikan informasi, pendampingan,
-            dan dukungan yang jelas bagi masyarakat Indonesia
-            yang ingin berkembang melalui kesempatan di Jepang.
+            Kami mengutamakan komunikasi yang baik, proses yang jelas, serta pendampingan yang profesional.
           </p>
 
-          <a href="#contact" class="btn btn-primary" data-key="aboutButton">
+          <div class="about-points">
+
+            <div class="point">
+              <div class="point-icon">✓</div>
+              <span data-key="point1">Pendampingan yang profesional</span>
+            </div>
+
+            <div class="point">
+              <div class="point-icon">✓</div>
+              <span data-key="point2">Informasi yang jelas dan transparan</span>
+            </div>
+
+            <div class="point">
+              <div class="point-icon">✓</div>
+              <span data-key="point3">Mengutamakan hubungan jangka panjang</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+
+    <section class="services" id="services">
+
+      <div class="container">
+
+        <div class="services-header">
+
+          <div>
+            <div class="section-label" data-key="servicesLabel">
+              LAYANAN
+            </div>
+
+            <h2 class="section-title" data-key="servicesTitle">
+              Solusi untuk kebutuhan Anda
+            </h2>
+          </div>
+
+          <p class="section-description" data-key="servicesDescription">
+            Kami membantu memberikan informasi dan pendampingan sesuai kebutuhan dalam hubungan kerja Indonesia dan Jepang.
+          </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+          <div class="service-card">
+
+            <div class="service-number">01</div>
+
+            <div class="service-icon">人</div>
+
+            <h3 data-key="service1Title">
+              Informasi Peluang Kerja
+            </h3>
+
+            <p data-key="service1Text">
+              Informasi mengenai peluang kerja dan bidang yang tersedia di Jepang.
+            </p>
+
+          </div>
+
+
+          <div class="service-card">
+
+            <div class="service-number">02</div>
+
+            <div class="service-icon">日</div>
+
+            <h3 data-key="service2Title">
+              Pendampingan
+            </h3>
+
+            <p data-key="service2Text">
+              Membantu memberikan arahan dan informasi selama proses persiapan.
+            </p>
+
+          </div>
+
+
+          <div class="service-card">
+
+            <div class="service-number">03</div>
+
+            <div class="service-icon">橋</div>
+
+            <h3 data-key="service3Title">
+              Hubungan Indonesia–Jepang
+            </h3>
+
+            <p data-key="service3Text">
+              Membangun komunikasi dan kerja sama antara pihak Indonesia dan Jepang.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROCESS
+    ========================== -->
+
+    <section class="process" id="process">
+
+      <div class="container">
+
+        <div class="section-label" data-key="processLabel">
+          ALUR
+        </div>
+
+        <h2 class="section-title" data-key="processTitle">
+          Proses yang sederhana dan jelas
+        </h2>
+
+        <p class="section-description" data-key="processDescription">
+          Kami berusaha membuat setiap proses menjadi lebih mudah dipahami.
+        </p>
+
+
+        <div class="process-grid">
+
+          <div class="process-item">
+            <div class="process-number">01</div>
+
+            <h3 data-key="process1Title">
+              Konsultasi
+            </h3>
+
+            <p data-key="process1Text">
+              Sampaikan kebutuhan dan bidang yang Anda cari.
+            </p>
+          </div>
+
+
+          <div class="process-item">
+            <div class="process-number">02</div>
+
+            <h3 data-key="process2Title">
+              Informasi
+            </h3>
+
+            <p data-key="process2Text">
+              Kami memberikan informasi sesuai kebutuhan.
+            </p>
+          </div>
+
+
+          <div class="process-item">
+            <div class="process-number">03</div>
+
+            <h3 data-key="process3Title">
+              Persiapan
+            </h3>
+
+            <p data-key="process3Text">
+              Mempersiapkan dokumen dan kebutuhan proses.
+            </p>
+          </div>
+
+
+          <div class="process-item">
+            <div class="process-number">04</div>
+
+            <h3 data-key="process4Title">
+              Pendampingan
+            </h3>
+
+            <p data-key="process4Text">
+              Mendampingi proses sesuai kebutuhan.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta">
+
+      <div class="cta-box">
+
+        <div class="cta-content">
+
+          <h2 data-key="ctaTitle">
+            Mari membangun peluang bersama.
+          </h2>
+
+          <p data-key="ctaText">
+            Hubungi kami untuk mendapatkan informasi lebih lanjut mengenai layanan dan peluang kerja sama.
+          </p>
+
+          <a href="#contact" class="btn btn-primary" data-key="ctaButton">
             Hubungi Kami
           </a>
 
@@ -729,156 +1072,401 @@
 
       </div>
 
-    </div>
-  </section>
+    </section>
 
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
-    <div class="container">
+    <!-- =========================
+         CONTACT
+    ========================== -->
 
-      <div class="section-label" data-key="servicesLabel">
-        What We Do
-      </div>
+    <section class="contact" id="contact">
 
-      <h2 class="section-title" data-key="servicesTitle">
-        Layanan Kami
-      </h2>
+      <div class="container contact-grid">
 
-      <p class="section-description" data-key="servicesDescription">
-        Kami menyediakan berbagai dukungan untuk membantu proses
-        menuju kesempatan kerja dan pengembangan karier di Jepang.
-      </p>
+        <div>
 
-      <div class="cards">
+          <div class="section-label" data-key="contactLabel">
+            KONTAK
+          </div>
 
-        <div class="card">
-          <div class="card-icon">💼</div>
-          <h3 data-key="service1Title">Penempatan Kerja</h3>
-          <p data-key="service1Text">
-            Informasi dan dukungan mengenai peluang kerja
-            di Jepang sesuai kebutuhan.
+          <h2 class="section-title" data-key="contactTitle">
+            Mari terhubung dengan kami
+          </h2>
+
+          <p class="section-description" data-key="contactDescription">
+            Silakan hubungi kami untuk pertanyaan, informasi kerja sama, atau kebutuhan lainnya.
           </p>
+
+
+          <div class="contact-info">
+
+            <div class="contact-item">
+
+              <div class="contact-icon">📍</div>
+
+              <div>
+                <small data-key="addressLabel">LOKASI</small>
+                <strong data-key="addressValue">Indonesia</strong>
+              </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+              <div class="contact-icon">✉</div>
+
+              <div>
+                <small data-key="emailLabel">EMAIL</small>
+                <strong data-key="emailValue">
+                  Email perusahaan
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+              <div class="contact-icon">☎</div>
+
+              <div>
+                <small data-key="phoneLabel">TELEPON / WHATSAPP</small>
+                <strong data-key="phoneValue">
+                  Kontak perusahaan
+                </strong>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="card">
-          <div class="card-icon">🤝</div>
-          <h3 data-key="service2Title">Pendampingan</h3>
-          <p data-key="service2Text">
-            Pendampingan dalam persiapan dan proses
-            menuju dunia kerja di Jepang.
+
+        <div class="contact-card">
+
+          <h3 data-key="contactCardTitle">
+            Amanah Sakura Japan
+          </h3>
+
+          <p data-key="contactCardText">
+            Silakan hubungi kami untuk mendapatkan informasi lebih lanjut.
           </p>
-        </div>
 
-        <div class="card">
-          <div class="card-icon">🇯🇵</div>
-          <h3 data-key="service3Title">Informasi Jepang</h3>
-          <p data-key="service3Text">
-            Informasi mengenai pekerjaan, kehidupan,
-            dan persiapan sebelum berada di Jepang.
-          </p>
-        </div>
+          <a href="#home" class="btn btn-primary" data-key="contactButton">
+            Kembali ke Beranda
+          </a>
 
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- PROCESS -->
-  <section class="process" id="process">
-    <div class="container">
-
-      <div class="section-label" data-key="processLabel">
-        How It Works
-      </div>
-
-      <h2 class="section-title" data-key="processTitle">
-        Alur Proses
-      </h2>
-
-      <p class="section-description" data-key="processDescription">
-        Proses yang jelas membantu setiap calon peserta memahami
-        tahapan yang perlu dipersiapkan.
-      </p>
-
-      <div class="process-grid">
-
-        <div class="process-item">
-          <div class="number">01</div>
-          <h3 data-key="process1Title">Konsultasi</h3>
-          <p data-key="process1Text">
-            Konsultasikan bidang dan kebutuhan Anda.
-          </p>
-        </div>
-
-        <div class="process-item">
-          <div class="number">02</div>
-          <h3 data-key="process2Title">Persiapan</h3>
-          <p data-key="process2Text">
-            Mempersiapkan dokumen dan persyaratan.
-          </p>
-        </div>
-
-        <div class="process-item">
-          <div class="number">03</div>
-          <h3 data-key="process3Title">Seleksi</h3>
-          <p data-key="process3Text">
-            Mengikuti proses seleksi sesuai kebutuhan.
-          </p>
-        </div>
-
-        <div class="process-item">
-          <div class="number">04</div>
-          <h3 data-key="process4Title">Berangkat</h3>
-          <p data-key="process4Text">
-            Melanjutkan proses setelah seluruh persyaratan terpenuhi.
-          </p>
         </div>
 
       </div>
 
-    </div>
-  </section>
+    </section>
+
+  </main>
 
 
-  <!-- CTA -->
-  <section class="cta">
-    <div class="cta-container">
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
-      <div>
-        <h2 data-key="ctaTitle">
-          Siap mengetahui peluang ke Jepang?
-        </h2>
+  <footer>
 
-        <p data-key="ctaText">
-          Hubungi tim kami untuk mendapatkan informasi lebih lanjut.
-        </p>
+    <div class="footer-inner">
+
+      <div class="footer-logo">
+        Amanah <span>Sakura</span> Japan
       </div>
 
-      <a href="#contact" class="btn" data-key="ctaButton">
-        Hubungi Kami
-      </a>
+      <div class="copyright" data-key="copyright">
+        © 2026 Amanah Sakura Japan. All Rights Reserved.
+      </div>
 
     </div>
-  </section>
+
+  </footer>
 
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="container">
+  <!-- =========================
+       LANGUAGE SCRIPT
+  ========================== -->
 
-      <div class="section-label" data-key="contactLabel">
-        Get In Touch
-      </div>
+  <script>
 
-      <h2 class="section-title" data-key="contactTitle">
-        Hubungi Kami
-      </h2>
+    const translations = {
 
-      <p class="section-description" data-key="contactDescription">
-        Silakan hubungi kami untuk informasi mengenai layanan
-        dan peluang kerja di Jepang.
-      </p>
+      id: {
 
-      <div class="contact-grid">
+        navHome: "Home",
+        navAbout: "Tentang Kami",
+        navServices: "Layanan",
+        navProcess: "Alur",
+        navContact: "Kontak",
+
+        heroEyebrow: "MENGHUBUNGKAN INDONESIA & JEPANG",
+        heroTitle1: "Menghubungkan",
+        heroTitle2: "Talenta dengan Jepang",
+        heroText: "Membantu menghubungkan talenta Indonesia dengan peluang kerja dan kesempatan berkembang di Jepang.",
+        heroButton: "Hubungi Kami",
+        heroSecondButton: "Tentang Kami",
+
+        aboutLabel: "TENTANG KAMI",
+        aboutTitle: "Menjembatani peluang Indonesia dan Jepang",
+        aboutText1: "Amanah Sakura Japan hadir untuk membantu membangun hubungan dan peluang antara Indonesia dan Jepang.",
+        aboutText2: "Kami mengutamakan komunikasi yang baik, proses yang jelas, serta pendampingan yang profesional.",
+        point1: "Pendampingan yang profesional",
+        point2: "Informasi yang jelas dan transparan",
+        point3: "Mengutamakan hubungan jangka panjang",
+
+        servicesLabel: "LAYANAN",
+        servicesTitle: "Solusi untuk kebutuhan Anda",
+        servicesDescription: "Kami membantu memberikan informasi dan pendampingan sesuai kebutuhan dalam hubungan kerja Indonesia dan Jepang.",
+
+        service1Title: "Informasi Peluang Kerja",
+        service1Text: "Informasi mengenai peluang kerja dan bidang yang tersedia di Jepang.",
+
+        service2Title: "Pendampingan",
+        service2Text: "Membantu memberikan arahan dan informasi selama proses persiapan.",
+
+        service3Title: "Hubungan Indonesia–Jepang",
+        service3Text: "Membangun komunikasi dan kerja sama antara pihak Indonesia dan Jepang.",
+
+        processLabel: "ALUR",
+        processTitle: "Proses yang sederhana dan jelas",
+        processDescription: "Kami berusaha membuat setiap proses menjadi lebih mudah dipahami.",
+
+        process1Title: "Konsultasi",
+        process1Text: "Sampaikan kebutuhan dan bidang yang Anda cari.",
+
+        process2Title: "Informasi",
+        process2Text: "Kami memberikan informasi sesuai kebutuhan.",
+
+        process3Title: "Persiapan",
+        process3Text: "Mempersiapkan dokumen dan kebutuhan proses.",
+
+        process4Title: "Pendampingan",
+        process4Text: "Mendampingi proses sesuai kebutuhan.",
+
+        ctaTitle: "Mari membangun peluang bersama.",
+        ctaText: "Hubungi kami untuk mendapatkan informasi lebih lanjut mengenai layanan dan peluang kerja sama.",
+        ctaButton: "Hubungi Kami",
+
+        contactLabel: "KONTAK",
+        contactTitle: "Mari terhubung dengan kami",
+        contactDescription: "Silakan hubungi kami untuk pertanyaan, informasi kerja sama, atau kebutuhan lainnya.",
+
+        addressLabel: "LOKASI",
+        addressValue: "Indonesia",
+
+        emailLabel: "EMAIL",
+        emailValue: "Email perusahaan",
+
+        phoneLabel: "TELEPON / WHATSAPP",
+        phoneValue: "Kontak perusahaan",
+
+        contactCardTitle: "Amanah Sakura Japan",
+        contactCardText: "Silakan hubungi kami untuk mendapatkan informasi lebih lanjut.",
+        contactButton: "Kembali ke Beranda",
+
+        copyright: "© 2026 Amanah Sakura Japan. All Rights Reserved."
+      },
+
+
+      jp: {
+
+        navHome: "ホーム",
+        navAbout: "会社概要",
+        navServices: "サービス",
+        navProcess: "ご利用の流れ",
+        navContact: "お問い合わせ",
+
+        heroEyebrow: "インドネシアと日本をつなぐ",
+        heroTitle1: "人材をつなぐ",
+        heroTitle2: "日本への可能性",
+        heroText: "インドネシアの人材と、日本での仕事や成長の機会をつなぎます。",
+        heroButton: "お問い合わせ",
+        heroSecondButton: "会社概要",
+
+        aboutLabel: "会社概要",
+        aboutTitle: "インドネシアと日本の架け橋へ",
+        aboutText1: "Amanah Sakura Japanは、インドネシアと日本のつながりを大切にし、新たな可能性をサポートします。",
+        aboutText2: "丁寧なコミュニケーションと分かりやすい情報提供、そして誠実なサポートを大切にしています。",
+        point1: "丁寧で誠実なサポート",
+        point2: "分かりやすく透明性のある情報提供",
+        point3: "長期的な信頼関係を大切にする",
+
+        servicesLabel: "サービス",
+        servicesTitle: "お客様のニーズに合わせたサポート",
+        servicesDescription: "インドネシアと日本に関する仕事や協力について、必要な情報とサポートを提供します。",
+
+        service1Title: "求人情報のご案内",
+        service1Text: "日本での仕事や分野に関する情報をご案内します。",
+
+        service2Title: "サポート",
+        service2Text: "準備や手続きに関する情報を分かりやすくご案内します。",
+
+        service3Title: "インドネシア・日本の連携",
+        service3Text: "インドネシアと日本の企業・人材をつなぐ関係づくりをサポートします。",
+
+        processLabel: "ご利用の流れ",
+        processTitle: "シンプルで分かりやすいプロセス",
+        processDescription: "一つひとつのステップを分かりやすくご案内します。",
+
+        process1Title: "ご相談",
+        process1Text: "ご希望の分野やご相談内容をお聞かせください。",
+
+        process2Title: "情報提供",
+        process2Text: "ご希望に合わせて必要な情報をご案内します。",
+
+        process3Title: "準備",
+        process3Text: "必要な書類や準備についてご案内します。",
+
+        process4Title: "サポート",
+        process4Text: "必要に応じて継続的にサポートします。",
+
+        ctaTitle: "一緒に新しい可能性をつくりましょう。",
+        ctaText: "サービスや協力について詳しく知りたい方は、お気軽にお問い合わせください。",
+        ctaButton: "お問い合わせ",
+
+        contactLabel: "お問い合わせ",
+        contactTitle: "お気軽にご相談ください",
+        contactDescription: "ご質問、協力に関するお問い合わせなど、お気軽にご連絡ください。",
+
+        addressLabel: "所在地",
+        addressValue: "インドネシア",
+
+        emailLabel: "メール",
+        emailValue: "会社メールアドレス",
+
+        phoneLabel: "電話 / WhatsApp",
+        phoneValue: "会社連絡先",
+
+        contactCardTitle: "Amanah Sakura Japan",
+        contactCardText: "詳しい情報については、お気軽にお問い合わせください。",
+        contactButton: "ホームへ戻る",
+
+        copyright: "© 2026 Amanah Sakura Japan. All Rights Reserved."
+      },
+
+
+      en: {
+
+        navHome: "Home",
+        navAbout: "About Us",
+        navServices: "Services",
+        navProcess: "Process",
+        navContact: "Contact",
+
+        heroEyebrow: "CONNECTING INDONESIA & JAPAN",
+        heroTitle1: "Connecting",
+        heroTitle2: "Talent with Japan",
+        heroText: "Connecting Indonesian talent with opportunities to work and grow in Japan.",
+        heroButton: "Contact Us",
+        heroSecondButton: "About Us",
+
+        aboutLabel: "ABOUT US",
+        aboutTitle: "Building a bridge between Indonesia and Japan",
+        aboutText1: "Amanah Sakura Japan is committed to creating connections and opportunities between Indonesia and Japan.",
+        aboutText2: "We value clear communication, transparent information, and professional support throughout the process.",
+        point1: "Professional support",
+        point2: "Clear and transparent information",
+        point3: "Long-term relationships",
+
+        servicesLabel: "SERVICES",
+        servicesTitle: "Solutions for your needs",
+        servicesDescription: "We provide information and support for work opportunities and cooperation between Indonesia and Japan.",
+
+        service1Title: "Job Opportunities",
+        service1Text: "Information about available job opportunities and fields in Japan.",
+
+        service2Title: "Support",
+        service2Text: "Guidance and information throughout the preparation process.",
+
+        service3Title: "Indonesia–Japan Connection",
+        service3Text: "Building communication and cooperation between Indonesia and Japan.",
+
+        processLabel: "PROCESS",
+        processTitle: "A simple and clear process",
+        processDescription: "We aim to make every step easy to understand.",
+
+        process1Title: "Consultation",
+        process1Text: "Tell us about your needs and preferred field.",
+
+        process2Title: "Information",
+        process2Text: "We provide information based on your needs.",
+
+        process3Title: "Preparation",
+        process3Text: "Prepare the required documents and requirements.",
+
+        process4Title: "Support",
+        process4Text: "We provide support throughout the process.",
+
+        ctaTitle: "Let's build opportunities together.",
+        ctaText: "Contact us to learn more about our services and cooperation opportunities.",
+        ctaButton: "Contact Us",
+
+        contactLabel: "CONTACT",
+        contactTitle: "Let's connect with us",
+        contactDescription: "Feel free to contact us for questions, cooperation, or other inquiries.",
+
+        addressLabel: "LOCATION",
+        addressValue: "Indonesia",
+
+        emailLabel: "EMAIL",
+        emailValue: "Company email",
+
+        phoneLabel: "PHONE / WHATSAPP",
+        phoneValue: "Company contact",
+
+        contactCardTitle: "Amanah Sakura Japan",
+        contactCardText: "Please contact us for more information.",
+        contactButton: "Back to Home",
+
+        copyright: "© 2026 Amanah Sakura Japan. All Rights Reserved."
+      }
+
+    };
+
+
+    function setLanguage(lang) {
+
+      const selectedLanguage = translations[lang];
+
+      document.querySelectorAll("[data-key]").forEach(function(element) {
+
+        const key = element.getAttribute("data-key");
+
+        if (selectedLanguage[key]) {
+          element.textContent = selectedLanguage[key];
+        }
+
+      });
+
+
+      document.querySelectorAll(".language button").forEach(function(button) {
+        button.classList.remove("active");
+      });
+
+      document.getElementById("lang-" + lang).classList.add("active");
+
+
+      if (lang === "jp") {
+        document.documentElement.lang = "ja";
+      } else {
+        document.documentElement.lang = lang;
+      }
+
+
+      localStorage.setItem("language", lang);
+    }
+
+
+    const savedLanguage = localStorage.getItem("language") || "id";
+
+    setLanguage(savedLanguage);
+
+  </script>
+
+</body>
+</html>
