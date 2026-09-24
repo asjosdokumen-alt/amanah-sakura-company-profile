@@ -5,120 +5,616 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>PT Amanah Sakura Japan</title>
+  <meta name="description" content="PT Amanah Sakura Japan - Connecting Indonesian talent with opportunities in Japan.">
 
   <style>
+    :root {
+      --red: #b5121b;
+      --red-dark: #8e0d14;
+      --black: #111111;
+      --text: #252525;
+      --muted: #707070;
+      --light: #f7f7f5;
+      --white: #ffffff;
+      --border: #e8e8e8;
+      --shadow: 0 15px 40px rgba(0,0,0,.08);
+    }
+
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      color: #222;
-      background: #fff;
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
-      background: #fff;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #eee;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 1000;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
     }
 
     .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .5px;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--red);
+      color: white;
+      display: grid;
+      place-items: center;
       font-size: 20px;
-      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(181,18,27,.25);
+    }
+
+    .logo-text {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .logo-text span {
+      display: block;
+      color: var(--red);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      margin-top: 2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
     }
 
     nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #222;
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+      transition: .2s;
     }
 
+    nav a:hover {
+      color: var(--red);
+    }
+
+    .language {
+      display: flex;
+      gap: 5px;
+      padding: 4px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: white;
+    }
+
+    .language button {
+      border: none;
+      background: transparent;
+      padding: 7px 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .language button.active {
+      background: var(--red);
+      color: white;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
-      padding: 100px 7%;
-      text-align: center;
-      background: #f7f7f7;
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(181,18,27,.13), transparent 30%),
+        linear-gradient(135deg, #fff 0%, #faf9f7 100%);
+    }
+
+    .hero::after {
+      content: "桜";
+      position: absolute;
+      right: 5%;
+      bottom: -80px;
+      font-size: 420px;
+      font-weight: 900;
+      color: rgba(181,18,27,.035);
+      pointer-events: none;
+    }
+
+    .hero-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 90px 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      background: var(--red);
     }
 
     .hero h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      margin-bottom: 24px;
+      color: var(--black);
+    }
+
+    .hero h1 span {
+      color: var(--red);
     }
 
     .hero p {
       max-width: 650px;
-      margin: auto;
-      color: #666;
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 32px;
     }
 
-    .button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 24px;
-      background: #111;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .25s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: white;
+      box-shadow: 0 10px 25px rgba(181,18,27,.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 1px solid #ddd;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    /* =========================
+       GENERAL
+    ========================= */
 
     section {
-      padding: 70px 7%;
+      padding: 95px 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-label {
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
     .section-title {
-      text-align: center;
-      margin-bottom: 40px;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: var(--black);
+    }
+
+    .section-description {
+      max-width: 700px;
+      color: var(--muted);
+      margin-bottom: 45px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-visual {
+      min-height: 390px;
+      border-radius: 24px;
+      background:
+        linear-gradient(rgba(181,18,27,.1), rgba(181,18,27,.1)),
+        linear-gradient(135deg, #f1eee9, #fff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-visual::before {
+      content: "日本";
+      font-size: 150px;
+      font-weight: 900;
+      color: rgba(181,18,27,.08);
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      padding: 18px 20px;
+      background: white;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      font-weight: 800;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services {
+      background: var(--light);
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 22px;
     }
 
     .card {
-      padding: 30px;
-      border: 1px solid #eee;
-      border-radius: 10px;
       background: white;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(181,18,27,.08);
+      color: var(--red);
+      font-size: 24px;
+      margin-bottom: 22px;
     }
 
     .card h3 {
       margin-bottom: 10px;
+      font-size: 20px;
     }
 
-    footer {
-      padding: 30px 7%;
-      text-align: center;
-      background: #111;
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       PROCESS
+    ========================= */
+
+    .process {
+      background: white;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .process-item {
+      position: relative;
+      padding: 28px 20px;
+      border-top: 3px solid var(--red);
+      background: #fafafa;
+      border-radius: 0 0 14px 14px;
+    }
+
+    .number {
+      font-size: 34px;
+      font-weight: 900;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+
+    .process-item h3 {
+      margin-bottom: 8px;
+    }
+
+    .process-item p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      padding: 70px 24px;
+      background: var(--red);
       color: white;
     }
 
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
+    .cta-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
 
-      nav a {
-        margin: 0 6px;
-      }
+    .cta h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
 
-      .hero h1 {
-        font-size: 32px;
+    .cta p {
+      opacity: .85;
+    }
+
+    .cta .btn {
+      background: white;
+      color: var(--red);
+      white-space: nowrap;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      background: var(--light);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .contact-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 15px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 45px 24px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      max-width: 420px;
+    }
+
+    .footer-brand h3 {
+      margin-bottom: 8px;
+    }
+
+    .footer-brand p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .copyright {
+      color: #777;
+      font-size: 13px;
+      align-self: flex-end;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
 
       .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav-container {
+        padding: 12px 16px;
+        flex-wrap: wrap;
+      }
+
+      .logo-text {
+        font-size: 12px;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero {
+        min-height: 580px;
+      }
+
+      .hero-container {
+        padding: 70px 20px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
+
+      .cards,
+      .process-grid {
         grid-template-columns: 1fr;
+      }
+
+      .about-visual {
+        min-height: 280px;
+      }
+
+      .cta-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cta .btn {
+        width: 100%;
       }
     }
   </style>
@@ -126,188 +622,263 @@
 
 <body>
 
+  <!-- HEADER -->
   <header>
-    <div class="logo">AMANAH SAKURA JAPAN</div>
+    <div class="nav-container">
 
-    <nav>
-  <a href="#home">Home</a>
-  <a href="#about">Tentang Kami</a>
-  <a href="#services">Layanan</a>
-  <a href="#contact">Kontak</a>
+      <a href="#home" class="logo">
+        <div class="logo-mark">桜</div>
+        <div class="logo-text">
+          AMANAH SAKURA JAPAN
+          <span>PT AMANAH SAKURA JAPAN</span>
+        </div>
+      </a>
 
-  <span style="margin-left: 20px;">
-    <button onclick="setLanguage('id')">🇮🇩 ID</button>
-    <button onclick="setLanguage('jp')">🇯🇵 JP</button>
-    <button onclick="setLanguage('en')">🇬🇧 EN</button>
-  </span>
-</nav>
+      <nav>
+        <a href="#home" data-key="home">Home</a>
+        <a href="#about" data-key="about">Tentang Kami</a>
+        <a href="#services" data-key="services">Layanan</a>
+        <a href="#process" data-key="process">Alur</a>
+        <a href="#contact" data-key="contact">Kontak</a>
+
+        <div class="language">
+          <button onclick="setLanguage('id')" id="lang-id" class="active">ID</button>
+          <button onclick="setLanguage('jp')" id="lang-jp">JP</button>
+          <button onclick="setLanguage('en')" id="lang-en">EN</button>
+        </div>
+      </nav>
+
+    </div>
   </header>
 
+
+  <!-- HERO -->
   <section class="hero" id="home">
-    <h1>PT AMANAH SAKURA JAPAN</h1>
+    <div class="hero-container">
 
-    <p>
-      Membantu menghubungkan talenta Indonesia
-      dengan peluang kerja di Jepang.
-    </p>
+      <div class="hero-content">
 
-    <a href="#contact" class="button">
-      Hubungi Kami
-    </a>
-  </section>
+        <div class="eyebrow" data-key="eyebrow">
+          Connecting Indonesia & Japan
+        </div>
 
-  <section id="about">
-    <div class="section-title">
-      <h2>Tentang Kami</h2>
-    </div>
+        <h1 data-key="heroTitle">
+          Connecting <span>Talent</span><br>
+          with Japan
+        </h1>
 
-    <p style="max-width: 800px; margin: auto; text-align: center;">
-      PT Amanah Sakura Japan merupakan perusahaan yang
-      bergerak dalam layanan dan dukungan penempatan tenaga
-      kerja Indonesia ke Jepang.
-    </p>
-  </section>
-
-  <section id="services">
-    <div class="section-title">
-      <h2>Layanan Kami</h2>
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-        <h3>Penempatan Kerja</h3>
-        <p>
-          Informasi dan dukungan untuk peluang kerja
-          di Jepang.
+        <p data-key="heroText">
+          Membantu menghubungkan talenta Indonesia dengan
+          peluang kerja dan kesempatan berkembang di Jepang.
         </p>
-      </div>
 
-      <div class="card">
-        <h3>Pendampingan</h3>
-        <p>
-          Membantu proses persiapan dan komunikasi
-          selama proses kerja ke Jepang.
-        </p>
-      </div>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary" data-key="heroButton">
+            Hubungi Kami
+          </a>
 
-      <div class="card">
-        <h3>Informasi Jepang</h3>
-        <p>
-          Memberikan informasi mengenai kehidupan
-          dan pekerjaan di Jepang.
-        </p>
+          <a href="#services" class="btn btn-secondary" data-key="heroSecondButton">
+            Lihat Layanan
+          </a>
+        </div>
+
       </div>
 
     </div>
   </section>
 
-  <section id="contact">
-    <div class="section-title">
-      <h2>Hubungi Kami</h2>
-    </div>
 
-    <p style="text-align: center;">
-      Silakan hubungi kami untuk informasi lebih lanjut
-      mengenai layanan dan peluang kerja di Jepang.
-    </p>
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+
+      <div class="about-grid">
+
+        <div class="about-visual">
+          <div class="about-badge" data-key="aboutBadge">
+            Indonesia × Japan
+          </div>
+        </div>
+
+        <div class="about-text">
+
+          <div class="section-label" data-key="aboutLabel">
+            About Company
+          </div>
+
+          <h2 class="section-title" data-key="aboutTitle">
+            Tentang Kami
+          </h2>
+
+          <p data-key="aboutText1">
+            PT Amanah Sakura Japan hadir untuk membantu membangun
+            hubungan profesional antara Indonesia dan Jepang.
+          </p>
+
+          <p data-key="aboutText2">
+            Kami berkomitmen memberikan informasi, pendampingan,
+            dan dukungan yang jelas bagi masyarakat Indonesia
+            yang ingin berkembang melalui kesempatan di Jepang.
+          </p>
+
+          <a href="#contact" class="btn btn-primary" data-key="aboutButton">
+            Hubungi Kami
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
   </section>
 
-  <footer>
-    © 2026 PT Amanah Sakura Japan
-  </footer>
-<script>
-  const translations = {
-    id: {
-      home: "Home",
-      about: "Tentang Kami",
-      services: "Layanan",
-      contact: "Kontak",
-      title: "PT AMANAH SAKURA JAPAN",
-      description: "Membantu menghubungkan talenta Indonesia dengan peluang kerja di Jepang.",
-      button: "Hubungi Kami",
-      aboutTitle: "Tentang Kami",
-      servicesTitle: "Layanan Kami",
-      service1: "Penempatan Kerja",
-      service1Text: "Informasi dan dukungan untuk peluang kerja di Jepang.",
-      service2: "Pendampingan",
-      service2Text: "Membantu proses persiapan dan komunikasi selama proses kerja ke Jepang.",
-      service3: "Informasi Jepang",
-      service3Text: "Memberikan informasi mengenai kehidupan dan pekerjaan di Jepang.",
-      contactTitle: "Hubungi Kami",
-      contactText: "Silakan hubungi kami untuk informasi lebih lanjut mengenai layanan dan peluang kerja di Jepang."
-    },
 
-    jp: {
-      home: "ホーム",
-      about: "会社紹介",
-      services: "サービス",
-      contact: "お問い合わせ",
-      title: "PT AMANAH SAKURA JAPAN",
-      description: "インドネシアの人材と日本での仕事の機会をつなぎます。",
-      button: "お問い合わせ",
-      aboutTitle: "会社紹介",
-      servicesTitle: "サービス",
-      service1: "就職支援",
-      service1Text: "日本での仕事に関する情報とサポートを提供します。",
-      service2: "サポート",
-      service2Text: "日本で働くための準備やコミュニケーションをサポートします。",
-      service3: "日本情報",
-      service3Text: "日本での生活や仕事に関する情報を提供します。",
-      contactTitle: "お問い合わせ",
-      contactText: "サービスや日本での仕事について、お気軽にお問い合わせください。"
-    },
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
 
-    en: {
-      home: "Home",
-      about: "About Us",
-      services: "Services",
-      contact: "Contact",
-      title: "PT AMANAH SAKURA JAPAN",
-      description: "Connecting Indonesian talent with job opportunities in Japan.",
-      button: "Contact Us",
-      aboutTitle: "About Us",
-      servicesTitle: "Our Services",
-      service1: "Job Placement",
-      service1Text: "Information and support for job opportunities in Japan.",
-      service2: "Support",
-      service2Text: "Supporting preparation and communication for working in Japan.",
-      service3: "Japan Information",
-      service3Text: "Providing information about life and work in Japan.",
-      contactTitle: "Contact Us",
-      contactText: "Please contact us for more information about our services and job opportunities in Japan."
-    }
-  };
+      <div class="section-label" data-key="servicesLabel">
+        What We Do
+      </div>
 
-  function setLanguage(lang) {
-    const t = translations[lang];
+      <h2 class="section-title" data-key="servicesTitle">
+        Layanan Kami
+      </h2>
 
-    document.querySelectorAll("nav a")[0].textContent = t.home;
-    document.querySelectorAll("nav a")[1].textContent = t.about;
-    document.querySelectorAll("nav a")[2].textContent = t.services;
-    document.querySelectorAll("nav a")[3].textContent = t.contact;
+      <p class="section-description" data-key="servicesDescription">
+        Kami menyediakan berbagai dukungan untuk membantu proses
+        menuju kesempatan kerja dan pengembangan karier di Jepang.
+      </p>
 
-    document.querySelector(".hero h1").textContent = t.title;
-    document.querySelector(".hero p").textContent = t.description;
-    document.querySelector(".hero .button").textContent = t.button;
+      <div class="cards">
 
-    document.querySelector("#about h2").textContent = t.aboutTitle;
-    document.querySelector("#services h2").textContent = t.servicesTitle;
+        <div class="card">
+          <div class="card-icon">💼</div>
+          <h3 data-key="service1Title">Penempatan Kerja</h3>
+          <p data-key="service1Text">
+            Informasi dan dukungan mengenai peluang kerja
+            di Jepang sesuai kebutuhan.
+          </p>
+        </div>
 
-    const cards = document.querySelectorAll(".card");
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <h3 data-key="service2Title">Pendampingan</h3>
+          <p data-key="service2Text">
+            Pendampingan dalam persiapan dan proses
+            menuju dunia kerja di Jepang.
+          </p>
+        </div>
 
-    cards[0].querySelector("h3").textContent = t.service1;
-    cards[0].querySelector("p").textContent = t.service1Text;
+        <div class="card">
+          <div class="card-icon">🇯🇵</div>
+          <h3 data-key="service3Title">Informasi Jepang</h3>
+          <p data-key="service3Text">
+            Informasi mengenai pekerjaan, kehidupan,
+            dan persiapan sebelum berada di Jepang.
+          </p>
+        </div>
 
-    cards[1].querySelector("h3").textContent = t.service2;
-    cards[1].querySelector("p").textContent = t.service2Text;
+      </div>
 
-    cards[2].querySelector("h3").textContent = t.service3;
-    cards[2].querySelector("p").textContent = t.service3Text;
+    </div>
+  </section>
 
-    document.querySelector("#contact h2").textContent = t.contactTitle;
-    document.querySelector("#contact p").textContent = t.contactText;
-  }
-</script>
-</body>
-</html>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="container">
+
+      <div class="section-label" data-key="processLabel">
+        How It Works
+      </div>
+
+      <h2 class="section-title" data-key="processTitle">
+        Alur Proses
+      </h2>
+
+      <p class="section-description" data-key="processDescription">
+        Proses yang jelas membantu setiap calon peserta memahami
+        tahapan yang perlu dipersiapkan.
+      </p>
+
+      <div class="process-grid">
+
+        <div class="process-item">
+          <div class="number">01</div>
+          <h3 data-key="process1Title">Konsultasi</h3>
+          <p data-key="process1Text">
+            Konsultasikan bidang dan kebutuhan Anda.
+          </p>
+        </div>
+
+        <div class="process-item">
+          <div class="number">02</div>
+          <h3 data-key="process2Title">Persiapan</h3>
+          <p data-key="process2Text">
+            Mempersiapkan dokumen dan persyaratan.
+          </p>
+        </div>
+
+        <div class="process-item">
+          <div class="number">03</div>
+          <h3 data-key="process3Title">Seleksi</h3>
+          <p data-key="process3Text">
+            Mengikuti proses seleksi sesuai kebutuhan.
+          </p>
+        </div>
+
+        <div class="process-item">
+          <div class="number">04</div>
+          <h3 data-key="process4Title">Berangkat</h3>
+          <p data-key="process4Text">
+            Melanjutkan proses setelah seluruh persyaratan terpenuhi.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-container">
+
+      <div>
+        <h2 data-key="ctaTitle">
+          Siap mengetahui peluang ke Jepang?
+        </h2>
+
+        <p data-key="ctaText">
+          Hubungi tim kami untuk mendapatkan informasi lebih lanjut.
+        </p>
+      </div>
+
+      <a href="#contact" class="btn" data-key="ctaButton">
+        Hubungi Kami
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+
+      <div class="section-label" data-key="contactLabel">
+        Get In Touch
+      </div>
+
+      <h2 class="section-title" data-key="contactTitle">
+        Hubungi Kami
+      </h2>
+
+      <p class="section-description" data-key="contactDescription">
+        Silakan hubungi kami untuk informasi mengenai layanan
+        dan peluang kerja di Jepang.
+      </p>
+
+      <div class="contact-grid">
