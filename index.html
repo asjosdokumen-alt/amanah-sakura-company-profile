@@ -130,11 +130,17 @@
     <div class="logo">AMANAH SAKURA JAPAN</div>
 
     <nav>
-      <a href="#home">Home</a>
-      <a href="#about">Tentang Kami</a>
-      <a href="#services">Layanan</a>
-      <a href="#contact">Kontak</a>
-    </nav>
+  <a href="#home">Home</a>
+  <a href="#about">Tentang Kami</a>
+  <a href="#services">Layanan</a>
+  <a href="#contact">Kontak</a>
+
+  <span style="margin-left: 20px;">
+    <button onclick="setLanguage('id')">🇮🇩 ID</button>
+    <button onclick="setLanguage('jp')">🇯🇵 JP</button>
+    <button onclick="setLanguage('en')">🇬🇧 EN</button>
+  </span>
+</nav>
   </header>
 
   <section class="hero" id="home">
@@ -210,6 +216,98 @@
   <footer>
     © 2026 PT Amanah Sakura Japan
   </footer>
+<script>
+  const translations = {
+    id: {
+      home: "Home",
+      about: "Tentang Kami",
+      services: "Layanan",
+      contact: "Kontak",
+      title: "PT AMANAH SAKURA JAPAN",
+      description: "Membantu menghubungkan talenta Indonesia dengan peluang kerja di Jepang.",
+      button: "Hubungi Kami",
+      aboutTitle: "Tentang Kami",
+      servicesTitle: "Layanan Kami",
+      service1: "Penempatan Kerja",
+      service1Text: "Informasi dan dukungan untuk peluang kerja di Jepang.",
+      service2: "Pendampingan",
+      service2Text: "Membantu proses persiapan dan komunikasi selama proses kerja ke Jepang.",
+      service3: "Informasi Jepang",
+      service3Text: "Memberikan informasi mengenai kehidupan dan pekerjaan di Jepang.",
+      contactTitle: "Hubungi Kami",
+      contactText: "Silakan hubungi kami untuk informasi lebih lanjut mengenai layanan dan peluang kerja di Jepang."
+    },
 
+    jp: {
+      home: "ホーム",
+      about: "会社紹介",
+      services: "サービス",
+      contact: "お問い合わせ",
+      title: "PT AMANAH SAKURA JAPAN",
+      description: "インドネシアの人材と日本での仕事の機会をつなぎます。",
+      button: "お問い合わせ",
+      aboutTitle: "会社紹介",
+      servicesTitle: "サービス",
+      service1: "就職支援",
+      service1Text: "日本での仕事に関する情報とサポートを提供します。",
+      service2: "サポート",
+      service2Text: "日本で働くための準備やコミュニケーションをサポートします。",
+      service3: "日本情報",
+      service3Text: "日本での生活や仕事に関する情報を提供します。",
+      contactTitle: "お問い合わせ",
+      contactText: "サービスや日本での仕事について、お気軽にお問い合わせください。"
+    },
+
+    en: {
+      home: "Home",
+      about: "About Us",
+      services: "Services",
+      contact: "Contact",
+      title: "PT AMANAH SAKURA JAPAN",
+      description: "Connecting Indonesian talent with job opportunities in Japan.",
+      button: "Contact Us",
+      aboutTitle: "About Us",
+      servicesTitle: "Our Services",
+      service1: "Job Placement",
+      service1Text: "Information and support for job opportunities in Japan.",
+      service2: "Support",
+      service2Text: "Supporting preparation and communication for working in Japan.",
+      service3: "Japan Information",
+      service3Text: "Providing information about life and work in Japan.",
+      contactTitle: "Contact Us",
+      contactText: "Please contact us for more information about our services and job opportunities in Japan."
+    }
+  };
+
+  function setLanguage(lang) {
+    const t = translations[lang];
+
+    document.querySelectorAll("nav a")[0].textContent = t.home;
+    document.querySelectorAll("nav a")[1].textContent = t.about;
+    document.querySelectorAll("nav a")[2].textContent = t.services;
+    document.querySelectorAll("nav a")[3].textContent = t.contact;
+
+    document.querySelector(".hero h1").textContent = t.title;
+    document.querySelector(".hero p").textContent = t.description;
+    document.querySelector(".hero .button").textContent = t.button;
+
+    document.querySelector("#about h2").textContent = t.aboutTitle;
+    document.querySelector("#services h2").textContent = t.servicesTitle;
+
+    const cards = document.querySelectorAll(".card");
+
+    cards[0].querySelector("h3").textContent = t.service1;
+    cards[0].querySelector("p").textContent = t.service1Text;
+
+    cards[1].querySelector("h3").textContent = t.service2;
+    cards[1].querySelector("p").textContent = t.service2Text;
+
+    cards[2].querySelector("h3").textContent = t.service3;
+    cards[2].querySelector("p").textContent = t.service3Text;
+
+    document.querySelector("#contact h2").textContent = t.contactTitle;
+    document.querySelector("#contact p").textContent = t.contactText;
+  }
+</script>
 </body>
 </html>
