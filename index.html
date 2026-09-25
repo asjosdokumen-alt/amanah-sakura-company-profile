@@ -178,8 +178,6 @@ header{
     );
 }
 
-/* Matahari Jepang */
-
 .hero-sun{
   position:absolute;
   width:410px;
@@ -207,8 +205,6 @@ header{
   background:rgba(167,25,25,.05);
 }
 
-/* pola Jepang */
-
 .hero-pattern{
   position:absolute;
   right:80px;
@@ -221,8 +217,6 @@ header{
   background-size:22px 22px;
   transform:rotate(20deg);
 }
-
-/* bunga sakura */
 
 .sakura{
   position:absolute;
@@ -383,6 +377,42 @@ section{
 .profile{
   background:#171717;
   color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Premium background detail khusus profile */
+
+.profile:before{
+  content:"";
+  position:absolute;
+  width:520px;
+  height:520px;
+  right:-230px;
+  top:-190px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.05);
+  box-shadow:
+    0 0 0 45px rgba(255,255,255,.018),
+    0 0 0 90px rgba(255,255,255,.012);
+  pointer-events:none;
+}
+
+.profile:after{
+  content:"";
+  position:absolute;
+  left:-180px;
+  bottom:-250px;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  border:1px solid rgba(167,25,25,.14);
+  pointer-events:none;
+}
+
+.profile .container{
+  position:relative;
+  z-index:2;
 }
 
 .profile .section-description{
@@ -413,33 +443,148 @@ section{
   gap:15px;
 }
 
+/* =================================
+   PREMIUM TEAM CARD
+================================= */
+
 .team-card{
-  padding:22px;
+  position:relative;
+  padding:24px;
   border:1px solid rgba(255,255,255,.12);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.045),
+      rgba(255,255,255,.015)
+    );
   display:flex;
-  gap:18px;
+  gap:22px;
   align-items:center;
-  transition:.25s;
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease,
+    background .3s ease;
+  overflow:hidden;
+}
+
+/* garis merah premium di sisi kiri */
+
+.team-card:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:18px;
+  bottom:18px;
+  width:2px;
+  background:var(--red);
+  opacity:.75;
+}
+
+/* efek cahaya */
+
+.team-card:after{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  right:-90px;
+  top:-90px;
+  border-radius:50%;
+  background:rgba(167,25,25,.08);
+  pointer-events:none;
 }
 
 .team-card:hover{
-  border-color:var(--red);
+  transform:translateY(-3px);
+  border-color:rgba(167,25,25,.65);
+  box-shadow:
+    0 16px 40px rgba(0,0,0,.25),
+    0 0 0 1px rgba(167,25,25,.08);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.065),
+      rgba(255,255,255,.02)
+    );
 }
 
+/* =================================
+   PREMIUM FOTO / BINGKAI
+================================= */
+
 .team-avatar{
-  width:57px;
-  height:57px;
-  min-width:57px;
+  width:88px;
+  height:88px;
+  min-width:88px;
   border-radius:50%;
   display:grid;
   place-items:center;
-  background:#292929;
+  position:relative;
+  z-index:2;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #454545 0%,
+      #292929 48%,
+      #191919 100%
+    );
+
+  color:#fff;
+
   font-family:"Playfair Display",serif;
+  font-size:22px;
+  letter-spacing:1px;
+
+  border:1px solid rgba(255,255,255,.25);
+
+  box-shadow:
+    0 0 0 5px #171717,
+    0 0 0 6px rgba(167,25,25,.7),
+    0 10px 25px rgba(0,0,0,.35);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+/* bingkai bagian dalam */
+
+.team-avatar:before{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.14);
+}
+
+/* titik kecil dekorasi */
+
+.team-avatar:after{
+  content:"";
+  position:absolute;
+  width:5px;
+  height:5px;
+  right:8px;
+  top:13px;
+  border-radius:50%;
+  background:var(--red);
+  box-shadow:0 0 10px rgba(167,25,25,.8);
+}
+
+.team-card:hover .team-avatar{
+  transform:scale(1.04);
+  box-shadow:
+    0 0 0 5px #171717,
+    0 0 0 7px var(--red),
+    0 14px 30px rgba(0,0,0,.45);
 }
 
 .team-card h3{
   font-size:14px;
-  margin-bottom:3px;
+  margin-bottom:4px;
+  letter-spacing:.3px;
 }
 
 .team-card p{
@@ -731,7 +876,6 @@ footer{
 
 /* =================================
    JAPANESE MODE
-   UKURAN LEBIH KECIL
 ================================= */
 
 body.lang-jp{
@@ -816,6 +960,20 @@ body.lang-jp .service-card h3{
     grid-column:2;
   }
 
+  /* PREMIUM PROFILE MOBILE */
+
+  .team-card{
+    padding:22px;
+    gap:20px;
+  }
+
+  .team-avatar{
+    width:82px;
+    height:82px;
+    min-width:82px;
+    font-size:20px;
+  }
+
 }
 
 @media(max-width:650px){
@@ -887,6 +1045,28 @@ body.lang-jp .service-card h3{
     align-items:flex-start;
   }
 
+  /* PREMIUM PROFILE PHONE */
+
+  .team-card{
+    padding:20px;
+    gap:18px;
+  }
+
+  .team-avatar{
+    width:78px;
+    height:78px;
+    min-width:78px;
+    font-size:19px;
+  }
+
+  .team-card h3{
+    font-size:13px;
+  }
+
+  .team-card p{
+    font-size:9px;
+  }
+
   /* JP MOBILE */
 
   body.lang-jp .hero h1{
@@ -910,6 +1090,30 @@ body.lang-jp .service-card h3{
 
   body.lang-jp .service-card h3{
     font-size:20px;
+  }
+
+}
+
+/* =================================
+   VERY SMALL PHONE
+================================= */
+
+@media(max-width:390px){
+
+  .team-card{
+    gap:15px;
+    padding:17px;
+  }
+
+  .team-avatar{
+    width:70px;
+    height:70px;
+    min-width:70px;
+    font-size:17px;
+  }
+
+  .team-card h3{
+    font-size:12px;
   }
 
 }
@@ -1033,6 +1237,11 @@ HUBUNGI KAMI
 
 </section>
 
+
+<!-- =================================
+     PROFILE
+================================= -->
+
 <section class="section profile" id="profile">
 
 <div class="container">
@@ -1076,7 +1285,10 @@ Dengan pengalaman dan jaringan yang kami bangun, kami berusaha memberikan pelaya
 
 </div>
 
+
 <div class="team">
+
+<!-- KOIRUL -->
 
 <div class="team-card">
 
@@ -1098,6 +1310,9 @@ CEO PT AMANAH SAKURA JAPAN
 
 </div>
 
+
+<!-- AYOK -->
+
 <div class="team-card">
 
 <div class="team-avatar">
@@ -1117,6 +1332,9 @@ MANAGER & LEADER HUMAN REKRUITMEN TOKUTEI GINOU INDONESIA
 </div>
 
 </div>
+
+
+<!-- HADI -->
 
 <div class="team-card">
 
@@ -1145,6 +1363,7 @@ N1 TRANSLATOR
 </div>
 
 </section>
+
 
 <section class="section vision" id="vision">
 
@@ -1208,6 +1427,7 @@ Memberikan pelayanan yang profesional, transparan dan berkelanjutan kepada setia
 </div>
 
 </section>
+
 
 <section class="section">
 
@@ -1318,6 +1538,7 @@ Mendorong setiap individu untuk terus belajar dan berkembang.
 </div>
 
 </section>
+
 
 <section class="section services" id="services">
 
@@ -1434,6 +1655,7 @@ Membuka peluang kolaborasi dengan perusahaan dan lembaga terkait di Indonesia ma
 
 </section>
 
+
 <section class="section" id="process">
 
 <div class="container">
@@ -1524,6 +1746,7 @@ Mendukung proses menuju keberangkatan dan pekerjaan di Jepang.
 
 </section>
 
+
 <section class="section principle">
 
 <div class="container">
@@ -1556,6 +1779,7 @@ Kami percaya bahwa kepercayaan tidak dibangun dalam satu hari. Karena itu kami m
 </div>
 
 </section>
+
 
 <section class="section contact" id="contact">
 
@@ -1657,6 +1881,7 @@ HUBUNGI KAMI
 
 </main>
 
+
 <footer>
 
 <div class="footer-inner">
@@ -1673,6 +1898,7 @@ data-i18n="footer">
 </div>
 
 </footer>
+
 
 <script>
 
@@ -1866,6 +2092,7 @@ footer:
 
 },
 
+
 jp: {
 
 nav_profile:"会社概要",
@@ -1901,8 +2128,6 @@ profile_text2:
 
 profile_text3:
 "これまで培ってきた経験とネットワークを活かし、準備から就労まで責任を持ってサポートいたします。",
-
-/* JP + ENGLISH SUBTITLE */
 
 team1:
 '代表取締役<span class="team-en">CEO PT AMANAH SAKURA JAPAN</span>',
@@ -2055,6 +2280,7 @@ footer:
 "© 2026 PT AMANAH SAKURA JAPAN. All rights reserved."
 
 },
+
 
 en: {
 
@@ -2290,10 +2516,12 @@ function applyLanguage(lang){
   });
 
   try{
+
     localStorage.setItem(
       "amanahLanguage",
       lang
     );
+
   }catch(error){}
 
 }
