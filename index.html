@@ -8,6 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -37,6 +38,8 @@ body{
   --dark:#151515;
   --red:#a71919;
   --sakura:#e7a3ad;
+  --gold:#d7b45a;
+  --gold-light:#f0d98b;
   --white:#ffffff;
   --gray:#707070;
   --line:rgba(0,0,0,.12);
@@ -82,17 +85,29 @@ header{
   gap:12px;
 }
 
+/* =================================
+   LOGO BARU
+================================= */
+
 .logo-mark{
-  width:43px;
-  height:43px;
+  width:58px;
+  height:58px;
+  min-width:58px;
   border-radius:50%;
-  background:var(--red);
-  color:white;
+  overflow:hidden;
+  background:#fff;
   display:grid;
   place-items:center;
-  font-family:"Noto Serif JP",serif;
-  font-size:22px;
-  box-shadow:0 5px 18px rgba(167,25,25,.18);
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.15),
+    0 0 0 1px rgba(167,25,25,.15);
+}
+
+.logo-mark img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
 .logo-text strong{
@@ -155,7 +170,7 @@ header{
 }
 
 /* =================================
-   HERO / TOP
+   HERO
 ================================= */
 
 .hero{
@@ -213,7 +228,7 @@ header{
   height:210px;
   opacity:.18;
   background-image:
-    radial-gradient(circle, #a71919 1.5px, transparent 1.5px);
+    radial-gradient(circle,#a71919 1.5px,transparent 1.5px);
   background-size:22px 22px;
   transform:rotate(20deg);
 }
@@ -372,47 +387,23 @@ section{
 
 /* =================================
    PROFILE
+   PREMIUM
 ================================= */
 
 .profile{
-  background:#171717;
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(215,180,90,.06),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #171717,
+      #111111 55%,
+      #191919
+    );
   color:#fff;
-  position:relative;
-  overflow:hidden;
-}
-
-/* Premium background detail khusus profile */
-
-.profile:before{
-  content:"";
-  position:absolute;
-  width:520px;
-  height:520px;
-  right:-230px;
-  top:-190px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.05);
-  box-shadow:
-    0 0 0 45px rgba(255,255,255,.018),
-    0 0 0 90px rgba(255,255,255,.012);
-  pointer-events:none;
-}
-
-.profile:after{
-  content:"";
-  position:absolute;
-  left:-180px;
-  bottom:-250px;
-  width:500px;
-  height:500px;
-  border-radius:50%;
-  border:1px solid rgba(167,25,25,.14);
-  pointer-events:none;
-}
-
-.profile .container{
-  position:relative;
-  z-index:2;
 }
 
 .profile .section-description{
@@ -423,6 +414,7 @@ section{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:65px;
+  align-items:start;
 }
 
 .profile-copy p{
@@ -438,147 +430,105 @@ section{
   margin:28px 0;
 }
 
+/* =================================
+   TEAM PREMIUM
+================================= */
+
 .team{
   display:grid;
-  gap:15px;
+  gap:17px;
 }
-
-/* =================================
-   PREMIUM TEAM CARD
-================================= */
 
 .team-card{
   position:relative;
-  padding:24px;
-  border:1px solid rgba(255,255,255,.12);
+  padding:18px 21px;
+  border:1px solid rgba(215,180,90,.38);
+  border-radius:4px;
+  display:flex;
+  gap:21px;
+  align-items:center;
+  min-height:104px;
+
   background:
     linear-gradient(
       135deg,
       rgba(255,255,255,.045),
       rgba(255,255,255,.015)
     );
-  display:flex;
-  gap:22px;
-  align-items:center;
-  transition:
-    transform .3s ease,
-    border-color .3s ease,
-    box-shadow .3s ease,
-    background .3s ease;
-  overflow:hidden;
-}
 
-/* garis merah premium di sisi kiri */
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.20),
+    inset 0 1px 0 rgba(255,255,255,.05);
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
 
 .team-card:before{
   content:"";
   position:absolute;
-  left:0;
+  left:-1px;
   top:18px;
   bottom:18px;
   width:2px;
   background:var(--red);
-  opacity:.75;
-}
-
-/* efek cahaya */
-
-.team-card:after{
-  content:"";
-  position:absolute;
-  width:150px;
-  height:150px;
-  right:-90px;
-  top:-90px;
-  border-radius:50%;
-  background:rgba(167,25,25,.08);
-  pointer-events:none;
+  border-radius:2px;
 }
 
 .team-card:hover{
-  transform:translateY(-3px);
-  border-color:rgba(167,25,25,.65);
+  transform:translateY(-2px);
+  border-color:var(--gold);
   box-shadow:
-    0 16px 40px rgba(0,0,0,.25),
-    0 0 0 1px rgba(167,25,25,.08);
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.065),
-      rgba(255,255,255,.02)
-    );
+    0 16px 35px rgba(0,0,0,.30),
+    0 0 0 1px rgba(215,180,90,.08);
 }
 
 /* =================================
-   PREMIUM FOTO / BINGKAI
+   FRAME FOTO DIPERBESAR
 ================================= */
 
 .team-avatar{
-  width:88px;
-  height:88px;
-  min-width:88px;
+  width:82px;
+  height:82px;
+  min-width:82px;
+
   border-radius:50%;
+  overflow:hidden;
+
   display:grid;
   place-items:center;
-  position:relative;
-  z-index:2;
 
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #454545 0%,
-      #292929 48%,
-      #191919 100%
-    );
+  background:#292929;
 
-  color:#fff;
+  border:2px solid var(--gold);
+
+  box-shadow:
+    0 0 0 4px rgba(215,180,90,.08),
+    0 7px 20px rgba(0,0,0,.35);
 
   font-family:"Playfair Display",serif;
-  font-size:22px;
-  letter-spacing:1px;
-
-  border:1px solid rgba(255,255,255,.25);
-
-  box-shadow:
-    0 0 0 5px #171717,
-    0 0 0 6px rgba(167,25,25,.7),
-    0 10px 25px rgba(0,0,0,.35);
-
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease;
 }
 
-/* bingkai bagian dalam */
-
-.team-avatar:before{
-  content:"";
-  position:absolute;
-  inset:6px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.14);
+.team-avatar img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
 }
 
-/* titik kecil dekorasi */
-
-.team-avatar:after{
-  content:"";
-  position:absolute;
-  width:5px;
-  height:5px;
-  right:8px;
-  top:13px;
-  border-radius:50%;
-  background:var(--red);
-  box-shadow:0 0 10px rgba(167,25,25,.8);
+/* khusus foto portrait */
+.team-card:nth-child(1) .team-avatar img{
+  object-position:center 18%;
 }
 
-.team-card:hover .team-avatar{
-  transform:scale(1.04);
-  box-shadow:
-    0 0 0 5px #171717,
-    0 0 0 7px var(--red),
-    0 14px 30px rgba(0,0,0,.45);
+.team-card:nth-child(2) .team-avatar img{
+  object-position:center 18%;
+}
+
+.team-card:nth-child(3) .team-avatar img{
+  object-position:center 17%;
 }
 
 .team-card h3{
@@ -588,21 +538,10 @@ section{
 }
 
 .team-card p{
-  color:#999;
+  color:#d8bd65;
   font-size:10px;
   line-height:1.5;
-}
-
-/* TAMBAHAN KHUSUS SUBTITLE INGGRIS DI MODE JP */
-
-.team-en{
-  display:block;
-  margin-top:4px;
-  color:#777;
-  font-family:"DM Sans",sans-serif;
-  font-size:9px;
-  line-height:1.4;
-  letter-spacing:.2px;
+  letter-spacing:.4px;
 }
 
 /* =================================
@@ -914,6 +853,16 @@ body.lang-jp .service-card h3{
   line-height:1.5;
 }
 
+.team-en{
+  display:block;
+  margin-top:4px;
+  color:#777;
+  font-family:"DM Sans",sans-serif;
+  font-size:9px;
+  line-height:1.4;
+  letter-spacing:.2px;
+}
+
 /* =================================
    MOBILE
 ================================= */
@@ -960,23 +909,34 @@ body.lang-jp .service-card h3{
     grid-column:2;
   }
 
-  /* PREMIUM PROFILE MOBILE */
-
-  .team-card{
-    padding:22px;
-    gap:20px;
-  }
-
   .team-avatar{
-    width:82px;
-    height:82px;
-    min-width:82px;
-    font-size:20px;
+    width:78px;
+    height:78px;
+    min-width:78px;
   }
 
 }
 
 @media(max-width:650px){
+
+  .logo-mark{
+    width:48px;
+    height:48px;
+    min-width:48px;
+  }
+
+  .logo{
+    gap:9px;
+  }
+
+  .logo-text strong{
+    font-size:11px;
+  }
+
+  .logo-text span{
+    font-size:7px;
+    letter-spacing:1.8px;
+  }
 
   .hero{
     min-height:100vh;
@@ -1045,22 +1005,27 @@ body.lang-jp .service-card h3{
     align-items:flex-start;
   }
 
-  /* PREMIUM PROFILE PHONE */
+  /* PROFILE MOBILE */
+
+  .team{
+    gap:14px;
+  }
 
   .team-card{
-    padding:20px;
-    gap:18px;
+    padding:16px;
+    gap:16px;
+    min-height:100px;
   }
 
   .team-avatar{
-    width:78px;
-    height:78px;
-    min-width:78px;
-    font-size:19px;
+    width:76px;
+    height:76px;
+    min-width:76px;
   }
 
   .team-card h3{
-    font-size:13px;
+    font-size:12px;
+    line-height:1.4;
   }
 
   .team-card p{
@@ -1094,30 +1059,6 @@ body.lang-jp .service-card h3{
 
 }
 
-/* =================================
-   VERY SMALL PHONE
-================================= */
-
-@media(max-width:390px){
-
-  .team-card{
-    gap:15px;
-    padding:17px;
-  }
-
-  .team-avatar{
-    width:70px;
-    height:70px;
-    min-width:70px;
-    font-size:17px;
-  }
-
-  .team-card h3{
-    font-size:12px;
-  }
-
-}
-
 </style>
 </head>
 
@@ -1130,12 +1071,19 @@ body.lang-jp .service-card h3{
 <a href="#home" class="logo">
 
 <div class="logo-mark">
-桜
+
+<img
+src="logo-amanah-sakura.png"
+alt="PT Amanah Sakura Japan">
+
 </div>
 
 <div class="logo-text">
+
 <strong>PT AMANAH SAKURA JAPAN</strong>
+
 <span>INDONESIA × JAPAN</span>
+
 </div>
 
 </a>
@@ -1190,7 +1138,12 @@ EN
 
 </header>
 
+
 <main>
+
+<!-- =================================
+     HERO
+================================= -->
 
 <section class="hero" id="home">
 
@@ -1214,7 +1167,10 @@ Connecting <span>Indonesia</span> & Japan.
 
 <p class="hero-description"
 data-i18n="hero_description">
-Menghubungkan talenta Indonesia dengan peluang kerja dan masa depan yang lebih baik di Jepang.
+
+Menghubungkan talenta Indonesia dengan peluang kerja
+dan masa depan yang lebih baik di Jepang.
+
 </p>
 
 <div class="hero-buttons">
@@ -1222,13 +1178,17 @@ Menghubungkan talenta Indonesia dengan peluang kerja dan masa depan yang lebih b
 <a href="#profile"
 class="btn btn-dark"
 data-i18n="hero_button1">
+
 TENTANG KAMI
+
 </a>
 
 <a href="#contact"
 class="btn btn-light"
 data-i18n="hero_button2">
+
 HUBUNGI KAMI
+
 </a>
 
 </div>
@@ -1250,50 +1210,81 @@ HUBUNGI KAMI
 
 <div class="section-label"
 data-i18n="profile_label">
+
 PROFILE
+
 </div>
 
 <h2 class="section-title"
 data-i18n="profile_title">
+
 Tentang PT AMANAH SAKURA JAPAN
+
 </h2>
 
 <p class="section-description"
 data-i18n="profile_description">
-Kami hadir sebagai jembatan antara Indonesia dan Jepang dengan membangun hubungan yang profesional, amanah dan berkelanjutan.
+
+Kami hadir sebagai jembatan antara Indonesia dan Jepang
+dengan membangun hubungan yang profesional,
+amanah dan berkelanjutan.
+
 </p>
 
 </div>
 
+
 <div class="profile-grid">
+
 
 <div class="profile-copy">
 
 <p data-i18n="profile_text1">
-PT AMANAH SAKURA JAPAN berfokus pada pengembangan sumber daya manusia Indonesia untuk bekerja dan berkembang di Jepang.
+
+PT AMANAH SAKURA JAPAN berfokus pada pengembangan
+sumber daya manusia Indonesia untuk bekerja dan
+berkembang di Jepang.
+
 </p>
 
 <p data-i18n="profile_text2">
-Kami percaya bahwa setiap individu memiliki potensi untuk berkembang apabila mendapatkan kesempatan, pendampingan dan lingkungan yang tepat.
+
+Kami percaya bahwa setiap individu memiliki potensi
+untuk berkembang apabila mendapatkan kesempatan,
+pendampingan dan lingkungan yang tepat.
+
 </p>
 
 <div class="profile-line"></div>
 
 <p data-i18n="profile_text3">
-Dengan pengalaman dan jaringan yang kami bangun, kami berusaha memberikan pelayanan yang profesional dari proses awal hingga penempatan.
+
+Dengan pengalaman dan jaringan yang kami bangun,
+kami berusaha memberikan pelayanan yang profesional
+dari proses awal hingga penempatan.
+
 </p>
 
 </div>
 
 
+<!-- =================================
+     TEAM
+================================= -->
+
 <div class="team">
+
 
 <!-- KOIRUL -->
 
 <div class="team-card">
 
 <div class="team-avatar">
-KM
+
+<img
+src="koirul.jpg"
+alt="Koirul Mustakim">
+
 </div>
 
 <div>
@@ -1316,7 +1307,11 @@ CEO PT AMANAH SAKURA JAPAN
 <div class="team-card">
 
 <div class="team-avatar">
-AW
+
+<img
+src="ayok.jpg"
+alt="Ayok Wahyu Saputro">
+
 </div>
 
 <div>
@@ -1339,7 +1334,11 @@ MANAGER & LEADER HUMAN REKRUITMEN TOKUTEI GINOU INDONESIA
 <div class="team-card">
 
 <div class="team-avatar">
-HP
+
+<img
+src="hadi.jpg"
+alt="Hadi Prasojo">
+
 </div>
 
 <div>
@@ -1356,6 +1355,7 @@ N1 TRANSLATOR
 
 </div>
 
+
 </div>
 
 </div>
@@ -1365,6 +1365,10 @@ N1 TRANSLATOR
 </section>
 
 
+<!-- =================================
+     VISION
+================================= -->
+
 <section class="section vision" id="vision">
 
 <div class="container">
@@ -1373,17 +1377,24 @@ N1 TRANSLATOR
 
 <div class="section-label"
 data-i18n="vision_label">
+
 VISION & MISSION
+
 </div>
 
 <h2 class="section-title"
 data-i18n="vision_title">
+
 Membangun masa depan bersama.
+
 </h2>
 
 <p class="section-description"
 data-i18n="vision_description">
-Bukan hanya tentang bekerja di Jepang, tetapi tentang membangun kehidupan dan masa depan yang lebih baik.
+
+Bukan hanya tentang bekerja di Jepang,
+tetapi tentang membangun kehidupan dan masa depan yang lebih baik.
+
 </p>
 
 </div>
@@ -1401,10 +1412,14 @@ Visi
 </h3>
 
 <p data-i18n="vision_card_text">
-Menjadi jembatan terpercaya antara Indonesia dan Jepang dalam pengembangan sumber daya manusia yang berkualitas.
+
+Menjadi jembatan terpercaya antara Indonesia dan Jepang
+dalam pengembangan sumber daya manusia yang berkualitas.
+
 </p>
 
 </div>
+
 
 <div class="info-card">
 
@@ -1417,7 +1432,11 @@ Misi
 </h3>
 
 <p data-i18n="mission_card_text">
-Memberikan pelayanan yang profesional, transparan dan berkelanjutan kepada setiap kandidat, perusahaan dan partner.
+
+Memberikan pelayanan yang profesional,
+transparan dan berkelanjutan kepada setiap kandidat,
+perusahaan dan partner.
+
 </p>
 
 </div>
@@ -1428,6 +1447,10 @@ Memberikan pelayanan yang profesional, transparan dan berkelanjutan kepada setia
 
 </section>
 
+
+<!-- =================================
+     VALUES
+================================= -->
 
 <section class="section">
 
@@ -1437,101 +1460,143 @@ Memberikan pelayanan yang profesional, transparan dan berkelanjutan kepada setia
 
 <div class="section-label"
 data-i18n="values_label">
+
 OUR VALUES
+
 </div>
 
 <h2 class="section-title"
 data-i18n="values_title">
+
 Nilai yang kami pegang.
+
 </h2>
 
 </div>
 
+
 <div class="values-grid">
+
 
 <div class="value-card">
 
-<div class="value-icon">01</div>
+<div class="value-icon">
+01
+</div>
 
 <h3 data-i18n="value1_title">
 Amanah
 </h3>
 
 <p data-i18n="value1_text">
-Menjaga kepercayaan sebagai dasar dalam setiap hubungan dan pelayanan.
+
+Menjaga kepercayaan sebagai dasar
+dalam setiap hubungan dan pelayanan.
+
 </p>
 
 </div>
 
+
 <div class="value-card">
 
-<div class="value-icon">02</div>
+<div class="value-icon">
+02
+</div>
 
 <h3 data-i18n="value2_title">
 Profesional
 </h3>
 
 <p data-i18n="value2_text">
-Bekerja dengan standar profesional dan bertanggung jawab.
+
+Bekerja dengan standar profesional
+dan bertanggung jawab.
+
 </p>
 
 </div>
 
+
 <div class="value-card">
 
-<div class="value-icon">03</div>
+<div class="value-icon">
+03
+</div>
 
 <h3 data-i18n="value3_title">
 Integritas
 </h3>
 
 <p data-i18n="value3_text">
-Mengutamakan kejujuran dan transparansi dalam setiap proses.
+
+Mengutamakan kejujuran dan transparansi
+dalam setiap proses.
+
 </p>
 
 </div>
 
+
 <div class="value-card">
 
-<div class="value-icon">04</div>
+<div class="value-icon">
+04
+</div>
 
 <h3 data-i18n="value4_title">
 Pendampingan
 </h3>
 
 <p data-i18n="value4_text">
-Mendampingi kandidat agar memahami setiap tahapan dengan baik.
+
+Mendampingi kandidat agar memahami
+setiap tahapan dengan baik.
+
 </p>
 
 </div>
 
+
 <div class="value-card">
 
-<div class="value-icon">05</div>
+<div class="value-icon">
+05
+</div>
 
 <h3 data-i18n="value5_title">
 Kolaborasi
 </h3>
 
 <p data-i18n="value5_text">
-Membangun kerja sama jangka panjang dengan partner di Indonesia dan Jepang.
+
+Membangun kerja sama jangka panjang
+dengan partner di Indonesia dan Jepang.
+
 </p>
 
 </div>
 
+
 <div class="value-card">
 
-<div class="value-icon">06</div>
+<div class="value-icon">
+06
+</div>
 
 <h3 data-i18n="value6_title">
 Pertumbuhan
 </h3>
 
 <p data-i18n="value6_text">
-Mendorong setiap individu untuk terus belajar dan berkembang.
+
+Mendorong setiap individu untuk terus
+belajar dan berkembang.
+
 </p>
 
 </div>
+
 
 </div>
 
@@ -1539,6 +1604,10 @@ Mendorong setiap individu untuk terus belajar dan berkembang.
 
 </section>
 
+
+<!-- =================================
+     SERVICES
+================================= -->
 
 <section class="section services" id="services">
 
@@ -1548,106 +1617,151 @@ Mendorong setiap individu untuk terus belajar dan berkembang.
 
 <div class="section-label"
 data-i18n="services_label">
+
 SERVICES
+
 </div>
 
 <h2 class="section-title"
 data-i18n="services_title">
+
 Layanan kami.
+
 </h2>
 
 <p class="section-description"
 data-i18n="services_description">
-Mendukung proses kandidat dan partner dari awal hingga tahap selanjutnya.
+
+Mendukung proses kandidat dan partner
+dari awal hingga tahap selanjutnya.
+
 </p>
 
 </div>
 
+
 <div class="services-grid">
+
 
 <div class="service-card">
 
-<div class="service-number">01</div>
+<div class="service-number">
+01
+</div>
 
 <h3 data-i18n="service1_title">
 Rekrutmen
 </h3>
 
 <p data-i18n="service1_text">
-Membantu proses pencarian dan seleksi kandidat sesuai kebutuhan perusahaan Jepang.
+
+Membantu proses pencarian dan seleksi kandidat
+sesuai kebutuhan perusahaan Jepang.
+
 </p>
 
 </div>
 
+
 <div class="service-card">
 
-<div class="service-number">02</div>
+<div class="service-number">
+02
+</div>
 
 <h3 data-i18n="service2_title">
 Tokutei Ginou
 </h3>
 
 <p data-i18n="service2_text">
-Dukungan bagi kandidat yang ingin bekerja di Jepang melalui jalur Specified Skilled Worker.
+
+Dukungan bagi kandidat yang ingin bekerja
+di Jepang melalui jalur Specified Skilled Worker.
+
 </p>
 
 </div>
 
+
 <div class="service-card">
 
-<div class="service-number">03</div>
+<div class="service-number">
+03
+</div>
 
 <h3 data-i18n="service3_title">
 Pendampingan
 </h3>
 
 <p data-i18n="service3_text">
-Pendampingan komunikasi dan proses administrasi selama persiapan keberangkatan.
+
+Pendampingan komunikasi dan proses administrasi
+selama persiapan keberangkatan.
+
 </p>
 
 </div>
 
+
 <div class="service-card">
 
-<div class="service-number">04</div>
+<div class="service-number">
+04
+</div>
 
 <h3 data-i18n="service4_title">
 Bahasa Jepang
 </h3>
 
 <p data-i18n="service4_text">
-Membantu mempersiapkan kemampuan bahasa Jepang sebagai bagian dari kesiapan bekerja.
+
+Membantu mempersiapkan kemampuan bahasa Jepang
+sebagai bagian dari kesiapan bekerja.
+
 </p>
 
 </div>
 
+
 <div class="service-card">
 
-<div class="service-number">05</div>
+<div class="service-number">
+05
+</div>
 
 <h3 data-i18n="service5_title">
 Konsultasi
 </h3>
 
 <p data-i18n="service5_text">
-Konsultasi mengenai peluang kerja dan proses bekerja di Jepang.
+
+Konsultasi mengenai peluang kerja
+dan proses bekerja di Jepang.
+
 </p>
 
 </div>
 
+
 <div class="service-card">
 
-<div class="service-number">06</div>
+<div class="service-number">
+06
+</div>
 
 <h3 data-i18n="service6_title">
 Partnership
 </h3>
 
 <p data-i18n="service6_text">
-Membuka peluang kolaborasi dengan perusahaan dan lembaga terkait di Indonesia maupun Jepang.
+
+Membuka peluang kolaborasi dengan perusahaan
+dan lembaga terkait di Indonesia maupun Jepang.
+
 </p>
 
 </div>
+
 
 </div>
 
@@ -1655,6 +1769,10 @@ Membuka peluang kolaborasi dengan perusahaan dan lembaga terkait di Indonesia ma
 
 </section>
 
+
+<!-- =================================
+     PROCESS
+================================= -->
 
 <section class="section" id="process">
 
@@ -1664,17 +1782,23 @@ Membuka peluang kolaborasi dengan perusahaan dan lembaga terkait di Indonesia ma
 
 <div class="section-label"
 data-i18n="process_label">
+
 PROCESS
+
 </div>
 
 <h2 class="section-title"
 data-i18n="process_title">
+
 Proses yang jelas dan terarah.
+
 </h2>
 
 </div>
 
+
 <div class="process-list">
+
 
 <div class="process-item">
 
@@ -1692,6 +1816,7 @@ Memahami kebutuhan kandidat dan partner.
 
 </div>
 
+
 <div class="process-item">
 
 <div class="process-number">
@@ -1707,6 +1832,7 @@ Proses seleksi berdasarkan kebutuhan dan kualifikasi.
 </p>
 
 </div>
+
 
 <div class="process-item">
 
@@ -1724,6 +1850,7 @@ Persiapan bahasa, dokumen dan kebutuhan lainnya.
 
 </div>
 
+
 <div class="process-item">
 
 <div class="process-number">
@@ -1740,12 +1867,17 @@ Mendukung proses menuju keberangkatan dan pekerjaan di Jepang.
 
 </div>
 
+
 </div>
 
 </div>
 
 </section>
 
+
+<!-- =================================
+     PRINCIPLE
+================================= -->
 
 <section class="section principle">
 
@@ -1753,26 +1885,38 @@ Mendukung proses menuju keberangkatan dan pekerjaan di Jepang.
 
 <div class="principle-inner">
 
+
 <div>
 
 <div class="section-label"
 data-i18n="principle_label">
+
 OUR PRINCIPLE
+
 </div>
 
 <h2 data-i18n="principle_title">
-Amanah dalam proses. Profesional dalam pelayanan.
+
+Amanah dalam proses.
+Profesional dalam pelayanan.
+
 </h2>
 
 </div>
 
+
 <div>
 
 <p data-i18n="principle_text">
-Kami percaya bahwa kepercayaan tidak dibangun dalam satu hari. Karena itu kami menjaga setiap proses dengan komunikasi yang baik, transparansi dan tanggung jawab.
+
+Kami percaya bahwa kepercayaan tidak dibangun dalam satu hari.
+Karena itu kami menjaga setiap proses dengan komunikasi yang baik,
+transparansi dan tanggung jawab.
+
 </p>
 
 </div>
+
 
 </div>
 
@@ -1780,6 +1924,10 @@ Kami percaya bahwa kepercayaan tidak dibangun dalam satu hari. Karena itu kami m
 
 </section>
 
+
+<!-- =================================
+     CONTACT
+================================= -->
 
 <section class="section contact" id="contact">
 
@@ -1789,28 +1937,38 @@ Kami percaya bahwa kepercayaan tidak dibangun dalam satu hari. Karena itu kami m
 
 <div class="section-label"
 data-i18n="contact_label">
+
 CONTACT
+
 </div>
 
 <h2 class="section-title"
 data-i18n="contact_title">
+
 Mari terhubung dengan kami.
+
 </h2>
 
 <p class="section-description"
 data-i18n="contact_description">
-Untuk informasi kerja sama, rekrutmen atau kebutuhan lainnya, silakan hubungi kami.
+
+Untuk informasi kerja sama, rekrutmen atau kebutuhan lainnya,
+silakan hubungi kami.
+
 </p>
 
 </div>
 
+
 <div class="contact-grid">
+
 
 <div class="contact-box">
 
 <h3 data-i18n="contact_company">
 PT AMANAH SAKURA JAPAN
 </h3>
+
 
 <div class="contact-row">
 
@@ -1825,6 +1983,7 @@ PT AMANAH SAKURA JAPAN
 
 </div>
 
+
 <div class="contact-row">
 
 <div class="contact-label"
@@ -1837,6 +1996,7 @@ amanahsakurajapan@gmail.com
 </div>
 
 </div>
+
 
 <div class="contact-row">
 
@@ -1851,7 +2011,9 @@ PT AMANAH SAKURA JAPAN
 
 </div>
 
+
 </div>
+
 
 <div class="contact-box">
 
@@ -1860,18 +2022,25 @@ Ready to connect?
 </h3>
 
 <p data-i18n="contact_ready_text">
-Mari membangun hubungan dan peluang yang baik antara Indonesia dan Jepang.
+
+Mari membangun hubungan dan peluang
+yang baik antara Indonesia dan Jepang.
+
 </p>
 
 <br>
 
-<a href="mailto:amanahsakurajapan@gmail.com"
+<a
+href="mailto:amanahsakurajapan@gmail.com"
 class="btn btn-dark"
 data-i18n="contact_button">
+
 HUBUNGI KAMI
+
 </a>
 
 </div>
+
 
 </div>
 
@@ -1881,6 +2050,10 @@ HUBUNGI KAMI
 
 </main>
 
+
+<!-- =================================
+     FOOTER
+================================= -->
 
 <footer>
 
@@ -1892,7 +2065,10 @@ PT AMANAH SAKURA JAPAN
 
 <div class="footer-copy"
 data-i18n="footer">
-© 2026 PT AMANAH SAKURA JAPAN. All rights reserved.
+
+© 2026 PT AMANAH SAKURA JAPAN.
+All rights reserved.
+
 </div>
 
 </div>
@@ -2383,26 +2559,32 @@ services_description:
 "Supporting candidates and partners from the beginning through the next stages.",
 
 service1_title:"Recruitment",
+
 service1_text:
 "Supporting candidate sourcing and selection according to Japanese company requirements.",
 
 service2_title:"Specified Skilled Worker",
+
 service2_text:
 "Supporting candidates who wish to work in Japan through the Specified Skilled Worker pathway.",
 
 service3_title:"Support",
+
 service3_text:
 "Providing communication and administrative support during preparation.",
 
 service4_title:"Japanese Language",
+
 service4_text:
 "Helping candidates prepare their Japanese language skills for work.",
 
 service5_title:"Consultation",
+
 service5_text:
 "Consultation regarding job opportunities and working in Japan.",
 
 service6_title:"Partnership",
+
 service6_text:
 "Creating collaboration opportunities with companies and related organizations in Indonesia and Japan.",
 
@@ -2474,10 +2656,10 @@ footer:
 function applyLanguage(lang){
 
   if(!translations[lang]){
-    lang = "id";
+    lang="id";
   }
 
-  document.documentElement.lang = lang;
+  document.documentElement.lang=lang;
 
   document.body.classList.remove(
     "lang-id",
@@ -2486,14 +2668,14 @@ function applyLanguage(lang){
   );
 
   document.body.classList.add(
-    "lang-" + lang
+    "lang-"+lang
   );
 
   document.querySelectorAll(".lang-btn").forEach(function(button){
 
     button.classList.remove("active");
 
-    if(button.dataset.language === lang){
+    if(button.dataset.language===lang){
       button.classList.add("active");
     }
 
@@ -2501,14 +2683,14 @@ function applyLanguage(lang){
 
   document.querySelectorAll("[data-i18n]").forEach(function(element){
 
-    const key = element.dataset.i18n;
+    const key=element.dataset.i18n;
 
     if(
       translations[lang] &&
-      translations[lang][key] !== undefined
+      translations[lang][key]!==undefined
     ){
 
-      element.innerHTML =
+      element.innerHTML=
         translations[lang][key];
 
     }
@@ -2528,14 +2710,14 @@ function applyLanguage(lang){
 
 
 /* =================================
-   BUTTON JP / ID / EN
+   LANGUAGE BUTTON
 ================================= */
 
 document.querySelectorAll(".lang-btn").forEach(function(button){
 
-  button.addEventListener("click", function(){
+  button.addEventListener("click",function(){
 
-    const selectedLanguage =
+    const selectedLanguage=
       this.getAttribute("data-language");
 
     applyLanguage(selectedLanguage);
@@ -2549,20 +2731,20 @@ document.querySelectorAll(".lang-btn").forEach(function(button){
    LOAD LANGUAGE
 ================================= */
 
-let savedLanguage = "id";
+let savedLanguage="id";
 
 try{
 
-  const stored =
+  const stored=
     localStorage.getItem("amanahLanguage");
 
   if(
-    stored === "id" ||
-    stored === "jp" ||
-    stored === "en"
+    stored==="id" ||
+    stored==="jp" ||
+    stored==="en"
   ){
 
-    savedLanguage = stored;
+    savedLanguage=stored;
 
   }
 
