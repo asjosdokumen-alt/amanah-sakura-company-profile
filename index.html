@@ -1737,7 +1737,52 @@ body.lang-jp .contact-card h3{
     }
 
 }
+.moving-text{
+    width:100%;
+    overflow:hidden;
+    background:var(--black);
+    color:var(--gold-light);
+    border-top:1px solid rgba(183,149,85,.25);
+    border-bottom:1px solid rgba(183,149,85,.25);
+    padding:10px 0;
+    white-space:nowrap;
+}
 
+.moving-track{
+    display:inline-flex;
+    align-items:center;
+    gap:20px;
+    width:max-content;
+    animation:movingText 25s linear infinite;
+}
+
+.moving-track span{
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.14em;
+}
+
+.moving-track b{
+    color:var(--red);
+    font-size:11px;
+}
+
+.moving-track strong{
+    font-family:"Noto Serif JP", serif;
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:.08em;
+    color:var(--gold-light);
+}
+
+@keyframes movingText{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
 </style>
 </head>
 
@@ -1942,7 +1987,35 @@ body.lang-jp .contact-card h3{
 <!-- =====================================================
      PROFILE
 ===================================================== -->
+<div class="moving-text">
+    <div class="moving-track">
+        <span>PT AMANAH SAKURA JAPAN</span>
+        <b>✦</b>
+        <strong>ようこそ</strong>
+        <b>✦</b>
+        <span>日本への夢を、確かな一歩へ</span>
+        <b>✦</b>
+        <strong>最後まで戦い抜く</strong>
+        <b>✦</b>
+        <span>学び、成長し、未来へ</span>
+        <b>✦</b>
+        <span>INDONESIA ↔ JAPAN</span>
+        <b>✦</b>
 
+        <span>PT AMANAH SAKURA JAPAN</span>
+        <b>✦</b>
+        <strong>ようこそ</strong>
+        <b>✦</b>
+        <span>日本への夢を、確かな一歩へ</span>
+        <b>✦</b>
+        <strong>最後まで戦い抜く</strong>
+        <b>✦</b>
+        <span>学び、成長し、未来へ</span>
+        <b>✦</b>
+        <span>INDONESIA ↔ JAPAN</span>
+        <b>✦</b>
+    </div>
+</div>
 <section class="profile" id="profile">
 
 <div class="container">
