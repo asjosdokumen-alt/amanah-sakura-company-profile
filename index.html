@@ -105,55 +105,76 @@ button{
 }
 
 
-/* =========================
-   LOGO HEADER
-   ========================= */
+/* =========================================================
+   HEADER
+========================================================= */
 
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:76px;
+
+    display:flex;
+    align-items:center;
+
+    background:rgba(247,243,235,.94);
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid rgba(17,17,17,.08);
+
+    z-index:1000;
 }
 
-.logo-circle {
-    width: 56px;
-    height: 56px;
-    min-width: 56px;
-    min-height: 56px;
-    border-radius: 50%;
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #ffffff;
-    border: 2px solid var(--gold);
-    box-sizing: border-box;
+.nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
 }
 
-.logo-circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    display: block;
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
 
-.brand-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.15;
+.logo-circle{
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    border:2px solid var(--gold);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:var(--white);
 }
 
-.brand-text strong {
-    font-size: 14px;
-    font-weight: 800;
+.logo-circle img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
 
-.brand-text span {
-    font-size: 11px;
-    margin-top: 4px;
+.logo-text{
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.08em;
+}
+
+.logo-text span{
+    display:block;
+    color:var(--gold);
+    font-size:10px;
+    letter-spacing:.18em;
+    margin-top:1px;
 }
 
 .nav-menu{
@@ -1735,16 +1756,15 @@ body.lang-jp .contact-card h3{
 
     <a href="#home" class="logo-area">
 
-        <div class="brand">
-    <div class="logo-circle">
-        <img src="logo-lpk.png" alt="Logo LPK Amanah Sakura Japan">
-    </div>
+        <div class="logo-circle">
 
-    <div class="brand-text">
-        <strong>PT AMANAH SAKURA JAPAN</strong>
-        <span>アマナーさくらジャパン</span>
-    </div>
-</div>
+            <img
+                src="logo-amanah-sakura.png"
+                alt="PT Amanah Sakura Japan"
+                onerror="this.style.display='none'"
+            >
+
+        </div>
 
         <div class="logo-text">
 
@@ -3579,168 +3599,3 @@ navMenu
             function(){
 
                 navMenu.classList.remove(
-                    "open"
-                );
-
-            }
-        );
-
-    });
-
-
-/* =========================================================
-   SCROLL PROGRESS
-========================================================= */
-
-const scrollProgress =
-    document.getElementById(
-        "scrollProgress"
-    );
-
-
-window.addEventListener(
-    "scroll",
-    function(){
-
-        const scrollTop =
-            window.scrollY;
-
-        const documentHeight =
-            document.documentElement
-                .scrollHeight -
-            window.innerHeight;
-
-        const progress =
-            documentHeight > 0
-                ? (scrollTop / documentHeight) * 100
-                : 0;
-
-        scrollProgress.style.width =
-            progress + "%";
-
-    },
-    {passive:true}
-);
-
-
-/* =========================================================
-   BACK TO TOP
-========================================================= */
-
-const backTop =
-    document.getElementById(
-        "backTop"
-    );
-
-
-window.addEventListener(
-    "scroll",
-    function(){
-
-        if(window.scrollY > 500){
-
-            backTop.classList.add(
-                "show"
-            );
-
-        }else{
-
-            backTop.classList.remove(
-                "show"
-            );
-
-        }
-
-    },
-    {passive:true}
-);
-
-
-backTop.addEventListener(
-    "click",
-    function(){
-
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-
-    }
-);
-
-
-/* =========================================================
-   REVEAL ANIMATION
-========================================================= */
-
-const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
-
-
-if(
-    "IntersectionObserver"
-    in window
-){
-
-    const revealObserver =
-        new IntersectionObserver(
-            function(entries){
-
-                entries.forEach(
-                    function(entry){
-
-                        if(
-                            entry.isIntersecting
-                        ){
-
-                            entry.target.classList.add(
-                                "visible"
-                            );
-
-                            revealObserver.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    }
-                );
-
-            },
-            {
-                threshold:0.12
-            }
-        );
-
-
-    revealElements.forEach(
-        function(element){
-
-            revealObserver.observe(
-                element
-            );
-
-        }
-    );
-
-
-}else{
-
-    revealElements.forEach(
-        function(element){
-
-            element.classList.add(
-                "visible"
-            );
-
-        }
-    );
-
-}
-
-</script>
-
-</body>
-</html>
