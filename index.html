@@ -600,7 +600,7 @@ section{
 }
 
 .profile-mark::after{
-    content:"桜";
+    content:"";
 
     position:absolute;
 
@@ -621,7 +621,12 @@ section{
 
     text-align:center;
 }
-
+.profile-mark-text img{
+    width:190px;
+    height:190px;
+    object-fit:contain;
+    display:block;
+}
 .profile-content h3{
     font-family:"Playfair Display",serif;
 
@@ -1969,12 +1974,14 @@ body.lang-jp .contact-card h3{
 
         <div class="profile-mark reveal">
 
-            <div class="profile-mark-text">
-                AMANAH<br>
-                SAKURA
-            </div>
+    <div class="profile-mark-text">
+        <img
+            src="logo-lpk.png"
+            alt="PT Amanah Sakura Japan"
+        >
+    </div>
 
-        </div>
+</div>
 
 
         <div class="profile-content reveal">
