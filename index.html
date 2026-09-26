@@ -109,95 +109,31 @@ button{
    HEADER
 ========================================================= */
 
-<header>
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:76px;
 
-<div class="container nav">
+    display:flex;
+    align-items:center;
 
-    <a href="#home" class="logo-area">
+    background:rgba(247,243,235,.94);
+    backdrop-filter:blur(14px);
 
-        <div class="logo-circle">
+    border-bottom:1px solid rgba(17,17,17,.08);
 
-            <img
-                src="logo-amanah-sakura.png"
-                alt="PT Amanah Sakura Japan"
-                onerror="this.style.display='none'"
-            >
+    z-index:1000;
+}
 
-        </div>
+.nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
 
-        <div class="logo-text">
-
-            AMANAH SAKURA JAPAN
-
-            <span>PT AMANAH SAKURA JAPAN</span>
-
-        </div>
-
-    </a>
-
-
-    <nav class="nav-menu" id="navMenu">
-
-        <a href="#home" data-i18n="nav_home">
-            Home
-        </a>
-
-        <a href="#profile" data-i18n="nav_profile">
-            Profile
-        </a>
-
-        <a href="#team" data-i18n="nav_team">
-            Team
-        </a>
-
-        <a href="#services" data-i18n="nav_services">
-            Services
-        </a>
-
-        <a href="#process" data-i18n="nav_process">
-            Process
-        </a>
-
-        <a href="#contact" data-i18n="nav_contact">
-            Contact
-        </a>
-
-    </nav>
-
-
-    <div class="language-switch">
-
-        <button
-            class="lang-btn active"
-            data-lang="id">
-            ID
-        </button>
-
-        <button
-            class="lang-btn"
-            data-lang="jp">
-            JP
-        </button>
-
-        <button
-            class="lang-btn"
-            data-lang="en">
-            EN
-        </button>
-
-    </div>
-
-
-    <button
-        class="mobile-toggle"
-        id="mobileToggle"
-        aria-label="Menu">
-        ☰
-    </button>
-
-</div>
-
-</header>
 .logo-area{
     display:flex;
     align-items:center;
@@ -1816,20 +1752,19 @@ body.lang-jp .contact-card h3{
 
 <header>
 
-<div class="brand">
+<div class="container nav">
 
-    <!-- LOGO LPK -->
-    <div class="lpk-header-logo">
-        <img src="logo-lpk.png" alt="Logo LPK Amanah Sakura Japan">
-    </div>
+    <a href="#home" class="logo-area">
 
-    <!-- DESAIN ASLI JANGAN DIUBAH -->
-    <div class="brand-text">
-        <strong>PT AMANAH SAKURA JAPAN</strong>
-        <span>アマナーさくらジャパン</span>
-    </div>
+        <div class="logo-circle">
 
-</div>
+            <img
+                src="logo-amanah-sakura.png"
+                alt="PT Amanah Sakura Japan"
+                onerror="this.style.display='none'"
+            >
+
+        </div>
 
         <div class="logo-text">
 
@@ -3664,3 +3599,168 @@ navMenu
             function(){
 
                 navMenu.classList.remove(
+                    "open"
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
+
+const scrollProgress =
+    document.getElementById(
+        "scrollProgress"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        const scrollTop =
+            window.scrollY;
+
+        const documentHeight =
+            document.documentElement
+                .scrollHeight -
+            window.innerHeight;
+
+        const progress =
+            documentHeight > 0
+                ? (scrollTop / documentHeight) * 100
+                : 0;
+
+        scrollProgress.style.width =
+            progress + "%";
+
+    },
+    {passive:true}
+);
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+const backTop =
+    document.getElementById(
+        "backTop"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        if(window.scrollY > 500){
+
+            backTop.classList.add(
+                "show"
+            );
+
+        }else{
+
+            backTop.classList.remove(
+                "show"
+            );
+
+        }
+
+    },
+    {passive:true}
+);
+
+
+backTop.addEventListener(
+    "click",
+    function(){
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+);
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
+    );
+
+
+if(
+    "IntersectionObserver"
+    in window
+){
+
+    const revealObserver =
+        new IntersectionObserver(
+            function(entries){
+
+                entries.forEach(
+                    function(entry){
+
+                        if(
+                            entry.isIntersecting
+                        ){
+
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold:0.12
+            }
+        );
+
+
+    revealElements.forEach(
+        function(element){
+
+            revealObserver.observe(
+                element
+            );
+
+        }
+    );
+
+
+}else{
+
+    revealElements.forEach(
+        function(element){
+
+            element.classList.add(
+                "visible"
+            );
+
+        }
+    );
+
+}
+
+</script>
+
+</body>
+</html>
